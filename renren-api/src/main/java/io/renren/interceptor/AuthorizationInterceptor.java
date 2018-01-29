@@ -32,8 +32,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 权限(Token)验证
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2017-03-23 15:38
  */
 @Component

@@ -20,8 +20,8 @@ import java.lang.annotation.*;
 
 /**
  * 登录效验
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2017/9/23 14:30
  */
 @Target(ElementType.METHOD)
