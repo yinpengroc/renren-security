@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * 注册接口
+ * 注册interface
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-26 17:27
  */
 @RestController
 @RequestMapping("/api")
-@Api(tags="注册接口")
+@Api(tags="注册interface")
 public class ApiRegisterController {
     @Autowired
     private UserService userService;

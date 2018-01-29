@@ -9,7 +9,7 @@ basePath: /renren-security
 schemes:
   - http
 
-#定义接口数据
+#定义interface数据
 paths:
   /captcha.jpg:
     get:
@@ -225,7 +225,7 @@ paths:
       tags:
         - 部门管理
       summary: 选择部门
-      description: 添加、修改部门的时候，选择上级部门接口
+      description: 添加、修改部门的时候，选择上级部门interface
       produces:
         - application/json
       responses:
@@ -490,7 +490,7 @@ paths:
       tags:
         - 菜单管理
       summary: 选择菜单
-      description: 添加、修改菜单的时候，选择上级菜单接口
+      description: 添加、修改菜单的时候，选择上级菜单interface
       produces:
         - application/json
       responses:

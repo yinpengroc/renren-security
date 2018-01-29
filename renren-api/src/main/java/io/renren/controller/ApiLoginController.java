@@ -16,7 +16,7 @@ import springfox.documentation.annotations.ApiIgnore;
 import java.util.Map;
 
 /**
- * 登录接口
+ * 登录interface
  *
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -24,7 +24,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api")
-@Api(tags="登录接口")
+@Api(tags="登录interface")
 public class ApiLoginController {
     @Autowired
     private UserService userService;

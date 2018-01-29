@@ -944,6 +944,6 @@ layui.define(['jquery'], function(exports) {
 		$.support.pjax ? enable() : disable()
 
 	})(jQuery);
-	//输出接口
+	//输出interface
 	exports('pjax', null);
 });
