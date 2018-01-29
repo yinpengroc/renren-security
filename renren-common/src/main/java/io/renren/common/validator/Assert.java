@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -20,9 +20,9 @@ import io.renren.common.exception.RRException;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * 数据校验
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * 数据validate
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2017-03-23 15:50
  */
 public abstract class Assert {

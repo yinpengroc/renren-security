@@ -3,7 +3,7 @@
 /* jshint quotmark: double */
 window.SwaggerTranslator.learn({
     "Warning: Deprecated":"警告：已过时",
-    "Implementation Notes":"接口备注",
+    "Implementation Notes":"interface备注",
     "Response Class":"响应类",
     "Status":"状态",
     "Parameters":"参数",

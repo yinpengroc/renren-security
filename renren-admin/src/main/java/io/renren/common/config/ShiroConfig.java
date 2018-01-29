@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -36,7 +36,7 @@ import java.util.Map;
 /**
  * Shiro的配置文件
  *
- * @author Mark sunlightcs@gmail.com
+ * @author Mark yinpenghawk@gmail.com
  * @since 3.0.0 2017-09-27
  */
 @Configuration

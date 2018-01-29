@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -19,9 +19,9 @@ package io.renren.common.validator.group;
 import javax.validation.GroupSequence;
 
 /**
- * 定义校验顺序，如果AddGroup组失败，则UpdateGroup组不会再校验
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * 定义validate顺序，如果AddGroup组失败，则UpdateGroup组不会再validate
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2017-03-15 23:15
  */
 @GroupSequence({AddGroup.class, UpdateGroup.class})

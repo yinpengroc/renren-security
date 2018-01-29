@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -46,8 +46,8 @@ import java.util.Map;
 /**
  * 文件上传
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2017-03-25 12:13:26
  */
 @RestController
@@ -90,17 +90,17 @@ public class SysOssController {
 	@RequestMapping("/saveConfig")
 	@RequiresPermissions("sys:oss:all")
 	public R saveConfig(@RequestBody CloudStorageConfig config){
-		//校验类型
+		//validate类型
 		ValidatorUtils.validateEntity(config);
 
 		if(config.getType() == Constant.CloudService.QINIU.getValue()){
-			//校验七牛数据
+			//validate七牛数据
 			ValidatorUtils.validateEntity(config, QiniuGroup.class);
 		}else if(config.getType() == Constant.CloudService.ALIYUN.getValue()){
-			//校验阿里云数据
+			//validate阿里云数据
 			ValidatorUtils.validateEntity(config, AliyunGroup.class);
 		}else if(config.getType() == Constant.CloudService.QCLOUD.getValue()){
-			//校验腾讯云数据
+			//validate腾讯云数据
 			ValidatorUtils.validateEntity(config, QcloudGroup.class);
 		}
 

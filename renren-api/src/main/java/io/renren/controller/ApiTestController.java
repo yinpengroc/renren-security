@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
 /**
- * 测试接口
+ * 测试interface
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2017-03-23 15:47
  */
 @RestController
 @RequestMapping("/api")
-@Api(tags="测试接口")
+@Api(tags="测试interface")
 public class ApiTestController {
 
     @Login

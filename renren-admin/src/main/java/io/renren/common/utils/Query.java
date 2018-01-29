@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -26,7 +26,7 @@ import java.util.Map;
 /**
  * 查询参数
  *
- * @author Mark sunlightcs@gmail.com
+ * @author Mark yinpenghawk@gmail.com
  * @since 2.0.0 2017-03-14
  */
 public class Query<T> extends LinkedHashMap<String, Object> {

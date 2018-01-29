@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -26,8 +26,8 @@ import java.util.Map;
 /**
  * 系统配置信息
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2016年12月4日 下午6:49:01
  */
 public interface SysConfigService extends IService<SysConfigEntity>  {
@@ -62,9 +62,9 @@ public interface SysConfigService extends IService<SysConfigEntity>  {
 	public String getValue(String key);
 	
 	/**
-	 * 根据key，获取value的Object对象
+	 * 根据key，获取value的ObjectObject
 	 * @param key    key
-	 * @param clazz  Object对象
+	 * @param clazz  ObjectObject
 	 */
 	public <T> T getConfigObject(String key, Class<T> clazz);
 	

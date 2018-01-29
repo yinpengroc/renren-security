@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -39,7 +39,7 @@ import java.util.*;
 /**
  * 数据过滤，切面处理类
  *
- * @author Mark sunlightcs@gmail.com
+ * @author Mark yinpenghawk@gmail.com
  * @since 3.0.0 2017-09-17
  */
 @Aspect
@@ -72,7 +72,7 @@ public class DataFilterAspect {
             return ;
         }
 
-        throw new RRException("数据权限接口，只能是Map类型参数，且不能为NULL");
+        throw new RRException("数据权限interface，只能是Map类型参数，且不能为NULL");
     }
 
     /**

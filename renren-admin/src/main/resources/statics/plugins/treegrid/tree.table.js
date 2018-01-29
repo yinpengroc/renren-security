@@ -5,7 +5,7 @@
  */
 (function () {
     var TreeTable = function (tableId, url, columns) {
-        this.btInstance = null;					//jquery和bootstrapTreeTable绑定的对象
+        this.btInstance = null;					//jquery和bootstrapTreeTable绑定的Object
         this.bstableId = tableId;
         this.url = url;
         this.method = "GET";

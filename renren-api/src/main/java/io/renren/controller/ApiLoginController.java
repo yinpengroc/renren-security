@@ -16,15 +16,15 @@ import springfox.documentation.annotations.ApiIgnore;
 import java.util.Map;
 
 /**
- * 登录接口
+ * 登录interface
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2017-03-23 15:31
  */
 @RestController
 @RequestMapping("/api")
-@Api(tags="登录接口")
+@Api(tags="登录interface")
 public class ApiLoginController {
     @Autowired
     private UserService userService;
@@ -35,7 +35,7 @@ public class ApiLoginController {
     @PostMapping("login")
     @ApiOperation("登录")
     public R login(@RequestBody LoginForm form){
-        //表单校验
+        //表单validate
         ValidatorUtils.validateEntity(form);
 
         //用户登录

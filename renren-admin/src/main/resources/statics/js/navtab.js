@@ -20,8 +20,8 @@ layui.define(['element'], function(exports){
           return _this;
     };
     /**
-     * [init 对象初始化]
-     * @return {[type]} [返回对象初始化结果]
+     * [init Object初始化]
+     * @return {[type]} [返回Object初始化结果]
      */
     LarryTab.prototype.init  = function(){
          var _this = this;

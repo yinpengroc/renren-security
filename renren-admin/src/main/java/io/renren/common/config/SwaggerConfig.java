@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -30,7 +30,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * Swagger配置
  *
- * @author Mark sunlightcs@gmail.com
+ * @author Mark yinpenghawk@gmail.com
  * @since 3.0.0 2018-01-16
  */
 @Configuration
@@ -42,9 +42,9 @@ public class SwaggerConfig{
         return new Docket(DocumentationType.SWAGGER_2)
             .apiInfo(apiInfo())
             .select()
-            //加了ApiOperation注解的类，生成接口文档
+            //加了ApiOperation注解的类，生成interface文档
             .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-            //包下的类，生成接口文档
+            //包下的类，生成interface文档
             //.apis(RequestHandlerSelectors.basePackage("io.renren.modules.job.controller"))
             .paths(PathSelectors.any())
             .build();

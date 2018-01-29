@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * 数据字典
  *
- * @author Mark sunlightcs@gmail.com
+ * @author Mark yinpenghawk@gmail.com
  * @since 3.1.0 2018-01-27
  */
 @RestController
@@ -69,7 +69,7 @@ public class SysDictController {
     @RequestMapping("/save")
     @RequiresPermissions("sys:dict:save")
     public R save(@RequestBody SysDictEntity dict){
-        //校验类型
+        //validate类型
         ValidatorUtils.validateEntity(dict);
 
         sysDictService.insert(dict);
@@ -83,7 +83,7 @@ public class SysDictController {
     @RequestMapping("/update")
     @RequiresPermissions("sys:dict:update")
     public R update(@RequestBody SysDictEntity dict){
-        //校验类型
+        //validate类型
         ValidatorUtils.validateEntity(dict);
 
         sysDictService.updateById(dict);

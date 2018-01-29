@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 IEMoney
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -23,8 +23,8 @@ import io.renren.modules.sys.entity.SysLogEntity;
 /**
  * 系统日志
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * @author peng
+ * @email yinpenghawk@gmail.com
  * @date 2017-03-08 10:40:56
  */
 public interface SysLogDao extends BaseMapper<SysLogEntity> {
