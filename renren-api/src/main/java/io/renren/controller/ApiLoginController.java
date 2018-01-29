@@ -35,7 +35,7 @@ public class ApiLoginController {
     @PostMapping("login")
     @ApiOperation("登录")
     public R login(@RequestBody LoginForm form){
-        //表单校验
+        //表单validate
         ValidatorUtils.validateEntity(form);
 
         //用户登录
