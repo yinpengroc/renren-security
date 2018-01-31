@@ -42,9 +42,9 @@ public class SwaggerConfig{
         return new Docket(DocumentationType.SWAGGER_2)
             .apiInfo(apiInfo())
             .select()
-            //加了ApiOperation注解的类，生成interface文档
+            //加了ApiOperation注解的类，生成interface Documents
             .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-            //包下的类，生成interface文档
+            //包下的类，生成interface Documents
             //.apis(RequestHandlerSelectors.basePackage("io.renren.modules.job.controller"))
             .paths(PathSelectors.any())
             .build();
@@ -52,9 +52,9 @@ public class SwaggerConfig{
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("人人开源")
-            .description("renren-admin文档")
-            .termsOfServiceUrl("http://www.renren.io")
+            .title("blockeeper.org")
+            .description("renren-admin Documents")
+            .termsOfServiceUrl("blockeeper.org")
             .version("3.1.0")
             .build();
     }

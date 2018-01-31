@@ -75,7 +75,7 @@ public class UserRealm extends AuthorizingRealm {
 			permsList = sysUserDao.queryAllPerms(userId);
 		}
 
-		//用户权限列表
+		// Users权限列表
 		Set<String> permsSet = new HashSet<>();
 		for(String perms : permsList){
 			if(StringUtils.isBlank(perms)){
@@ -97,7 +97,7 @@ public class UserRealm extends AuthorizingRealm {
 			AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
 
-        //查询用户信息
+        //查询 Users信息
 		SysUserEntity user = new SysUserEntity();
 		user.setUsername(token.getUsername());
 		user = sysUserDao.selectOne(user);

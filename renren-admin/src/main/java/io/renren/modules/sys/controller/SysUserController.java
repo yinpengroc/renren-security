@@ -38,7 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 系统用户
+ * 系统 Users
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -53,7 +53,7 @@ public class SysUserController extends AbstractController {
 	private SysUserRoleService sysUserRoleService;
 	
 	/**
-	 * 所有用户列表
+	 * 所有 Users列表
 	 */
 	@RequestMapping("/list")
 	@RequiresPermissions("sys:user:list")
@@ -64,7 +64,7 @@ public class SysUserController extends AbstractController {
 	}
 	
 	/**
-	 * 获取登录的用户信息
+	 * 获取登录的 Users信息
 	 */
 	@RequestMapping("/info")
 	public R info(){
@@ -72,7 +72,7 @@ public class SysUserController extends AbstractController {
 	}
 	
 	/**
-	 * 修改登录用户密码
+	 * 修改登录 Users密码
 	 */
 	@SysLog("修改密码")
 	@RequestMapping("/password")
@@ -94,14 +94,14 @@ public class SysUserController extends AbstractController {
 	}
 	
 	/**
-	 * 用户信息
+	 *  Users信息
 	 */
 	@RequestMapping("/info/{userId}")
 	@RequiresPermissions("sys:user:info")
 	public R info(@PathVariable("userId") Long userId){
 		SysUserEntity user = sysUserService.selectById(userId);
 		
-		//获取用户所属的角色列表
+		//获取 Users所属的角色列表
 		List<Long> roleIdList = sysUserRoleService.queryRoleIdList(userId);
 		user.setRoleIdList(roleIdList);
 		
@@ -109,9 +109,9 @@ public class SysUserController extends AbstractController {
 	}
 	
 	/**
-	 * 保存用户
+	 * 保存 Users
 	 */
-	@SysLog("保存用户")
+	@SysLog("保存 Users")
 	@RequestMapping("/save")
 	@RequiresPermissions("sys:user:save")
 	public R save(@RequestBody SysUserEntity user){
@@ -123,9 +123,9 @@ public class SysUserController extends AbstractController {
 	}
 	
 	/**
-	 * 修改用户
+	 * 修改 Users
 	 */
-	@SysLog("修改用户")
+	@SysLog("修改 Users")
 	@RequestMapping("/update")
 	@RequiresPermissions("sys:user:update")
 	public R update(@RequestBody SysUserEntity user){
@@ -137,9 +137,9 @@ public class SysUserController extends AbstractController {
 	}
 	
 	/**
-	 * 删除用户
+	 * 删除 Users
 	 */
-	@SysLog("删除用户")
+	@SysLog("删除 Users")
 	@RequestMapping("/delete")
 	@RequiresPermissions("sys:user:delete")
 	public R delete(@RequestBody Long[] userIds){
@@ -148,7 +148,7 @@ public class SysUserController extends AbstractController {
 		}
 		
 		if(ArrayUtils.contains(userIds, getUserId())){
-			return R.error("当前用户不能删除");
+			return R.error("当前 Users不能删除");
 		}
 
 		sysUserService.deleteBatchIds(Arrays.asList(userIds));

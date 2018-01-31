@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
 /**
- * 用户与角色对应关系
+ *  Users与角色对应关系
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -36,7 +36,7 @@ public class SysUserRoleEntity implements Serializable {
 	private Long id;
 
 	/**
-	 * 用户ID
+	 *  UsersID
 	 */
 	private Long userId;
 
@@ -62,15 +62,15 @@ public class SysUserRoleEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：用户ID
-	 * @param userId 用户ID
+	 * 设置： UsersID
+	 * @param userId  UsersID
 	 */
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
 	/**
-	 * 获取：用户ID
+	 * 获取： UsersID
 	 * @return Long
 	 */
 	public Long getUserId() {

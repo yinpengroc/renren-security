@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 系统用户
+ * 系统 Users
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -43,15 +43,15 @@ public class SysUserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * 用户ID
+	 *  UsersID
 	 */
 	@TableId
 	private Long userId;
 
 	/**
-	 * 用户名
+	 *  Users名
 	 */
-	@NotBlank(message="用户名不能为空", groups = {AddGroup.class, UpdateGroup.class})
+	@NotBlank(message=" Users名不能为空", groups = {AddGroup.class, UpdateGroup.class})
 	private String username;
 
 	/**
@@ -122,15 +122,15 @@ public class SysUserEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：用户名
-	 * @param username 用户名
+	 * 设置： Users名
+	 * @param username  Users名
 	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
 	/**
-	 * 获取：用户名
+	 * 获取： Users名
 	 * @return String
 	 */
 	public String getUsername() {

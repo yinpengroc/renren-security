@@ -27,7 +27,7 @@ layui.define(['element'], function(exports){
          var _this = this;
          var _config = _this.config;
          if(typeof(_config.elem) !== 'string' && typeof(_config.elem) !== 'object') {
-		       layer.alert('Tab选项卡错误提示: elem参数未定义或设置出错，具体设置格式请参考文档API.');
+		       layer.alert('Tab选项卡错误提示: elem参数未定义或设置出错，具体设置格式请参考 DocumentsAPI.');
 	     }
 	     var $container;
 	     if(typeof(_config.elem) === 'string') {

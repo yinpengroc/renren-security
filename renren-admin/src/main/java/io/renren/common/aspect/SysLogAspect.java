@@ -100,7 +100,7 @@ public class SysLogAspect {
 		//设置IP地址
 		sysLog.setIp(IPUtils.getIpAddr(request));
 
-		//用户名
+		// Users名
 		String username = ((SysUserEntity) SecurityUtils.getSubject().getPrincipal()).getUsername();
 		sysLog.setUsername(username);
 

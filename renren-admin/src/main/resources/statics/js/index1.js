@@ -113,7 +113,7 @@ var menuItem = Vue.extend({
 	].join('')
 });
 
-//注册菜单组件
+// Register菜单组件
 Vue.component('menuItem',menuItem);
 
 var vm = new Vue({

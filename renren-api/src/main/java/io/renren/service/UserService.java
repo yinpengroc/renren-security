@@ -24,7 +24,7 @@ import io.renren.form.LoginForm;
 import java.util.Map;
 
 /**
- * 用户
+ *  Users
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -35,8 +35,8 @@ public interface UserService extends IService<UserEntity> {
 	UserEntity queryByMobile(String mobile);
 
 	/**
-	 * 用户登录
-	 * @param form    登录表单
+	 *  Users登录
+	 * @param form    登录 Form
 	 * @return        返回登录信息
 	 */
 	Map<String, Object> login(LoginForm form);

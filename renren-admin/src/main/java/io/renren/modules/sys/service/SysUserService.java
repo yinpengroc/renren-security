@@ -25,7 +25,7 @@ import java.util.Map;
 
 
 /**
- * 系统用户
+ * 系统 Users
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -36,23 +36,23 @@ public interface SysUserService extends IService<SysUserEntity> {
 	PageUtils queryPage(Map<String, Object> params);
 	
 	/**
-	 * 查询用户的所有菜单ID
+	 * 查询 Users的所有菜单ID
 	 */
 	List<Long> queryAllMenuId(Long userId);
 	
 	/**
-	 * 保存用户
+	 * 保存 Users
 	 */
 	void save(SysUserEntity user);
 	
 	/**
-	 * 修改用户
+	 * 修改 Users
 	 */
 	void update(SysUserEntity user);
 
 	/**
 	 * 修改密码
-	 * @param userId       用户ID
+	 * @param userId        UsersID
 	 * @param password     原密码
 	 * @param newPassword  新密码
 	 */

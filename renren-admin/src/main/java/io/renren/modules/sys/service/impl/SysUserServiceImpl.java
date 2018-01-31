@@ -43,7 +43,7 @@ import java.util.Map;
 
 
 /**
- * 系统用户
+ * 系统 Users
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -91,7 +91,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
 		user.setPassword(ShiroUtils.sha256(user.getPassword(), user.getSalt()));
 		this.insert(user);
 		
-		//保存用户与角色关系
+		//保存 Users与角色关系
 		sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
 	}
 
@@ -105,7 +105,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
 		}
 		this.updateById(user);
 		
-		//保存用户与角色关系
+		//保存 Users与角色关系
 		sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
 	}
 

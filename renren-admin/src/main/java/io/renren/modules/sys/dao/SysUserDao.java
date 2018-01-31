@@ -22,7 +22,7 @@ import io.renren.modules.sys.entity.SysUserEntity;
 import java.util.List;
 
 /**
- * 系统用户
+ * 系统 Users
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -31,13 +31,13 @@ import java.util.List;
 public interface SysUserDao extends BaseMapper<SysUserEntity> {
 	
 	/**
-	 * 查询用户的所有权限
-	 * @param userId  用户ID
+	 * 查询 Users的所有权限
+	 * @param userId   UsersID
 	 */
 	List<String> queryAllPerms(Long userId);
 	
 	/**
-	 * 查询用户的所有菜单ID
+	 * 查询 Users的所有菜单ID
 	 */
 	List<Long> queryAllMenuId(Long userId);
 

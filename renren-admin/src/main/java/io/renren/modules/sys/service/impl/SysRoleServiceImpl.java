@@ -114,7 +114,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> i
 		//删除角色与部门关联
 		sysRoleDeptService.deleteBatch(roleIds);
 
-		//删除角色与用户关联
+		//删除角色与 Users关联
 		sysUserRoleService.deleteBatch(roleIds);
 	}
 

@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 import io.renren.entity.TokenEntity;
 
 /**
- * 用户Token
+ *  UsersToken
  * 
  * @author peng
  * @email yinpenghawk@gmail.com

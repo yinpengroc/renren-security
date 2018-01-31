@@ -26,7 +26,7 @@ import java.util.Date;
 
 
 /**
- * 用户Token
+ *  UsersToken
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -37,7 +37,7 @@ public class TokenEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 用户ID
+	 *  UsersID
 	 */
 	@TableId(type=IdType.INPUT)
 	private Long userId;
@@ -52,13 +52,13 @@ public class TokenEntity implements Serializable {
 	private Date updateTime;
 
 	/**
-	 * 设置：用户ID
+	 * 设置： UsersID
 	 */
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	/**
-	 * 获取：用户ID
+	 * 获取： UsersID
 	 */
 	public Long getUserId() {
 		return userId;

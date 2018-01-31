@@ -27,14 +27,14 @@ public class ApiTestController {
 
     @Login
     @GetMapping("userInfo")
-    @ApiOperation(value="获取用户信息", response=UserEntity.class)
+    @ApiOperation(value="获取 Users信息", response=UserEntity.class)
     public R userInfo(@ApiIgnore @LoginUser UserEntity user){
         return R.ok().put("user", user);
     }
 
     @Login
     @GetMapping("userId")
-    @ApiOperation("获取用户ID")
+    @ApiOperation("获取 UsersID")
     public R userInfo(@ApiIgnore @RequestAttribute("userId") Integer userId){
         return R.ok().put("userId", userId);
     }

@@ -158,7 +158,7 @@
                     target.append(tbody);
                     // 初始化treegrid
                     target.treegrid({
-                        treeColumn: options.expandColumn?options.expandColumn:(hasSelectItem?1:0),//如果有radio或checkbox默认第二列层级显示，当前是在用户未设置的提前下
+                        treeColumn: options.expandColumn?options.expandColumn:(hasSelectItem?1:0),//如果有radio或checkbox默认第二列层级显示，当前是在 Users未设置的提前下
                         expanderExpandedClass : options.expanderExpandedClass,
                         expanderCollapsedClass : options.expanderCollapsedClass
                     });

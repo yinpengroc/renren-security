@@ -22,7 +22,7 @@ import io.renren.modules.sys.entity.SysUserRoleEntity;
 import java.util.List;
 
 /**
- * 用户与角色对应关系
+ *  Users与角色对应关系
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -31,7 +31,7 @@ import java.util.List;
 public interface SysUserRoleDao extends BaseMapper<SysUserRoleEntity> {
 	
 	/**
-	 * 根据用户ID，获取角色ID列表
+	 * 根据 UsersID，获取角色ID列表
 	 */
 	List<Long> queryRoleIdList(Long userId);
 

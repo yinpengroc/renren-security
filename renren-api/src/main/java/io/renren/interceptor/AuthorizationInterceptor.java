@@ -74,7 +74,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
             throw new RRException("token失效，请重新登录");
         }
 
-        //设置userId到request里，后续根据userId，获取用户信息
+        //设置userId到request里，后续根据userId，获取 Users信息
         request.setAttribute(USER_KEY, tokenEntity.getUserId());
 
         return true;

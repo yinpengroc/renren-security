@@ -21,12 +21,12 @@ import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- * 注册表单
+ *  Register Form
  *
  * @author Mark yinpenghawk@gmail.com
  * @since 3.1.0 2018-01-25
  */
-@ApiModel(value = "注册表单")
+@ApiModel(value = " Register Form")
 public class RegisterForm {
     @ApiModelProperty(value = "手机号")
     @NotBlank(message="手机号不能为空")

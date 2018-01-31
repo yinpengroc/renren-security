@@ -49,7 +49,7 @@ public class TokenServiceImpl extends ServiceImpl<TokenDao, TokenEntity> impleme
 		//生成token
 		String token = generateToken();
 
-		//保存或更新用户token
+		//保存或更新 Userstoken
 		TokenEntity tokenEntity = new TokenEntity();
 		tokenEntity.setUserId(userId);
 		tokenEntity.setToken(token);

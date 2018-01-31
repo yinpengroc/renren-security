@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.service.IService;
 import io.renren.entity.TokenEntity;
 
 /**
- * 用户Token
+ *  UsersToken
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -32,14 +32,14 @@ public interface TokenService extends IService<TokenEntity> {
 
 	/**
 	 * 生成token
-	 * @param userId  用户ID
+	 * @param userId   UsersID
 	 * @return        返回token信息
 	 */
 	TokenEntity createToken(long userId);
 
 	/**
 	 * 设置token过期
-	 * @param userId 用户ID
+	 * @param userId  UsersID
 	 */
 	void expireToken(long userId);
 

@@ -21,10 +21,10 @@ CREATE TABLE `sys_dept` (
   PRIMARY KEY (`dept_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部门管理';
 
--- 系统用户
+-- 系统 Users
 CREATE TABLE `sys_user` (
   `user_id` bigint NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `username` varchar(50) NOT NULL COMMENT ' Users名',
   `password` varchar(100) COMMENT '密码',
   `salt` varchar(20) COMMENT '盐',
   `email` varchar(100) COMMENT '邮箱',
@@ -34,7 +34,7 @@ CREATE TABLE `sys_user` (
   `create_time` datetime COMMENT '创建时间',
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统用户';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统 Users';
 
 -- 角色
 CREATE TABLE `sys_role` (
@@ -46,13 +46,13 @@ CREATE TABLE `sys_role` (
   PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色';
 
--- 用户与角色对应关系
+--  Users与角色对应关系
 CREATE TABLE `sys_user_role` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `user_id` bigint COMMENT '用户ID',
+  `user_id` bigint COMMENT ' UsersID',
   `role_id` bigint COMMENT '角色ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户与角色对应关系';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT=' Users与角色对应关系';
 
 -- 角色与菜单对应关系
 CREATE TABLE `sys_role_menu` (
@@ -99,8 +99,8 @@ CREATE TABLE `sys_dict` (
 -- 系统日志
 CREATE TABLE `sys_log` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COMMENT '用户名',
-  `operation` varchar(50) COMMENT '用户操作',
+  `username` varchar(50) COMMENT ' Users名',
+  `operation` varchar(50) COMMENT ' Users操作',
   `method` varchar(200) COMMENT '请求方法',
   `params` varchar(5000) COMMENT '请求参数',
   `time` bigint NOT NULL COMMENT '执行时长(毫秒)',
@@ -143,7 +143,7 @@ INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `
 INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (40, 36, '删除', NULL, 'sys:dict:delete', 2, NULL, 6);
 
 
-INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('1', '0', '人人开源集团', '0', '0');
+INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('1', '0', 'blockeeper.org集团', '0', '0');
 INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('2', '1', '长沙分公司', '1', '0');
 INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('3', '1', '上海分公司', '2', '0');
 INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('4', '3', '技术部', '0', '0');

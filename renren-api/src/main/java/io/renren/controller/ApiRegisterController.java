@@ -18,22 +18,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * 注册interface
+ *  Registerinterface
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-26 17:27
  */
 @RestController
 @RequestMapping("/api")
-@Api(tags="注册interface")
+@Api(tags=" Registerinterface")
 public class ApiRegisterController {
     @Autowired
     private UserService userService;
 
     @PostMapping("register")
-    @ApiOperation("注册")
+    @ApiOperation(" Register")
     public R register(@RequestBody RegisterForm form){
-        //表单validate
+        // Formvalidate
         ValidatorUtils.validateEntity(form);
 
         UserEntity user = new UserEntity();

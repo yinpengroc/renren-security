@@ -23,7 +23,7 @@ import java.util.List;
 
 
 /**
- * 用户与角色对应关系
+ *  Users与角色对应关系
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -34,7 +34,7 @@ public interface SysUserRoleService extends IService<SysUserRoleEntity>  {
 	void saveOrUpdate(Long userId, List<Long> roleIdList);
 	
 	/**
-	 * 根据用户ID，获取角色ID列表
+	 * 根据 UsersID，获取角色ID列表
 	 */
 	List<Long> queryRoleIdList(Long userId);
 

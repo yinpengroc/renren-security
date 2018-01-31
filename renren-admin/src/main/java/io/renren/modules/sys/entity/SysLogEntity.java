@@ -35,9 +35,9 @@ public class SysLogEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@TableId
 	private Long id;
-	//用户名
+	// Users名
 	private String username;
-	//用户操作
+	// Users操作
 	private String operation;
 	//请求方法
 	private String method;
@@ -63,25 +63,25 @@ public class SysLogEntity implements Serializable {
 		return id;
 	}
 	/**
-	 * 设置：用户名
+	 * 设置： Users名
 	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	/**
-	 * 获取：用户名
+	 * 获取： Users名
 	 */
 	public String getUsername() {
 		return username;
 	}
 	/**
-	 * 设置：用户操作
+	 * 设置： Users操作
 	 */
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
 	/**
-	 * 获取：用户操作
+	 * 获取： Users操作
 	 */
 	public String getOperation() {
 		return operation;

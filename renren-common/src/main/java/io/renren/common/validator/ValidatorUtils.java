@@ -27,7 +27,7 @@ import java.util.Set;
 /**
  * hibernate-validatorvalidate工具类
  *
- * 参考文档：http://docs.jboss.org/hibernate/validator/5.4/reference/en-US/html_single/
+ * 参考 Documents：http://docs.jboss.org/hibernate/validator/5.4/reference/en-US/html_single/
  *
  * @author peng
  * @email yinpenghawk@gmail.com

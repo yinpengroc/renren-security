@@ -22,7 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 登录用户信息
+ * 登录 Users信息
  *
  * @author peng
  * @email yinpenghawk@gmail.com

@@ -26,7 +26,7 @@ import java.util.Date;
 
 
 /**
- * 用户
+ *  Users
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -37,12 +37,12 @@ public class UserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 用户ID
+	 *  UsersID
 	 */
 	@TableId
 	private Long userId;
 	/**
-	 * 用户名
+	 *  Users名
 	 */
 	private String username;
 	/**
@@ -60,25 +60,25 @@ public class UserEntity implements Serializable {
 	private Date createTime;
 
 	/**
-	 * 设置：用户ID
+	 * 设置： UsersID
 	 */
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	/**
-	 * 获取：用户ID
+	 * 获取： UsersID
 	 */
 	public Long getUserId() {
 		return userId;
 	}
 	/**
-	 * 设置：用户名
+	 * 设置： Users名
 	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	/**
-	 * 获取：用户名
+	 * 获取： Users名
 	 */
 	public String getUsername() {
 		return username;

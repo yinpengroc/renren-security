@@ -35,10 +35,10 @@ public class ApiLoginController {
     @PostMapping("login")
     @ApiOperation("登录")
     public R login(@RequestBody LoginForm form){
-        //表单validate
+        // Formvalidate
         ValidatorUtils.validateEntity(form);
 
-        //用户登录
+        // Users登录
         Map<String, Object> map = userService.login(form);
 
         return R.ok(map);
