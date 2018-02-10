@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -42,7 +42,7 @@ public class ScheduleJobServiceImpl extends ServiceImpl<ScheduleJobDao, Schedule
     private Scheduler scheduler;
 	
 	/**
-	 * 项目启动时，初始化定时器
+	 * 项目启动时，initiation定时器
 	 */
 	@PostConstruct
 	public void init(){

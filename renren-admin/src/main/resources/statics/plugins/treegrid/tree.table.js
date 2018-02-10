@@ -1,5 +1,5 @@
 /**
- * 初始化 Tree Table 的封装
+ * initiation Tree Table 的封装
  *
  * @author cyf
  */
@@ -13,8 +13,8 @@
         this.data = {};// ajax的参数
         this.expandColumn = null;// 展开显示的列 
         this.id = 'menuId';// 选取记录返回的值
-        this.code = 'menuId';// 用于设置父子关系
-        this.parentCode = 'parentId';// 用于设置父子关系
+        this.code = 'menuId';// 用于 config 父子关系
+        this.parentCode = 'parentId';// 用于 config 父子关系
         this.expandAll = false;// 是否默认全部展开
         this.toolbarId = tableId + "Toolbar";
         this.height = 430;
@@ -22,16 +22,16 @@
 
     TreeTable.prototype = {
         /**
-         * 初始化bootstrap table
+         * initiationbootstrap table
          */
         init: function () {
             var tableId = this.bstableId;
             this.btInstance =
                 $('#'+tableId).bootstrapTreeTable({
                     id: this.id,// 选取记录返回的值
-                    code: this.code,// 用于设置父子关系
-                    parentCode: this.parentCode,// 用于设置父子关系
-                    rootCodeValue: this.rootCodeValue,//设置根节点code值----可指定根节点，默认为null,"",0,"0"
+                    code: this.code,// 用于 config 父子关系
+                    parentCode: this.parentCode,// 用于 config 父子关系
+                    rootCodeValue: this.rootCodeValue,// config 根节点code值----可指定根节点，默认为null,"",0,"0"
                     type: this.method, //请求数据的ajax类型
                     url: this.url,   //请求数据的ajax的url
                     ajaxParams: this.data, //请求数据的ajax的data属性
@@ -46,49 +46,49 @@
         },
 
         /**
-         * 设置在哪一列上面显示展开按钮,从0开始
+         *  config 在哪一列上面显示展开按钮,从0开始
          */
         setExpandColumn: function (expandColumn) {
             this.expandColumn = expandColumn;
         },
         /**
-         * 设置记录返回的id值
+         *  config 记录返回的id值
          */
         setIdField: function (id) {
             this.id = id;
         },
         /**
-         * 设置记录分级的字段
+         *  config 记录分级的字段
          */
         setCodeField: function (code) {
             this.code = code;
         },
         /**
-         * 设置记录分级的父级字段
+         *  config 记录分级的父级字段
          */
         setParentCodeField: function (parentCode) {
             this.parentCode = parentCode;
         },
         /**
-         * 设置根节点code值----可指定根节点，默认为null,"",0,"0"
+         *  config 根节点code值----可指定根节点，默认为null,"",0,"0"
          */
         setRootCodeValue: function (rootCodeValue) {
             this.rootCodeValue = rootCodeValue;
         },
         /**
-         * 设置是否默认全部展开
+         *  config 是否默认全部展开
          */
         setExpandAll: function (expandAll) {
         	this.expandAll = expandAll;
         },
         /**
-         * 设置表格高度
+         *  config 表格高度
          */
         setHeight: function (height) {
         	this.height = height;
         },
         /**
-         * 设置ajax post请求时候附带的参数
+         *  config ajax post请求时候附带的参数
          */
         set: function (key, value) {
             if (typeof key == "object") {
@@ -104,7 +104,7 @@
         },
 
         /**
-         * 设置ajax get请求时候附带的参数
+         *  config ajax get请求时候附带的参数
          */
         setData: function (data) {
             this.data = data;

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 
 /**
- * 多数据源，切面处理类
+ * 多数据源，切面 deal with类
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017/9/16 22:20

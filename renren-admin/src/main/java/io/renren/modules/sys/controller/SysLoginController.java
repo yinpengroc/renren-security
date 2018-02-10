@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -36,7 +36,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * 登录相关
+ *  Login相关
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -64,7 +64,7 @@ public class SysLoginController {
 	}
 	
 	/**
-	 * 登录
+	 *  Login
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/sys/login", method = RequestMethod.POST)
@@ -83,7 +83,7 @@ public class SysLoginController {
 		}catch (IncorrectCredentialsException e) {
 			return R.error("账号或密码不正确");
 		}catch (LockedAccountException e) {
-			return R.error("账号已被锁定,请联系管理员");
+			return R.error("账号已被锁定,请联系Admin");
 		}catch (AuthenticationException e) {
 			return R.error("账户验证失败");
 		}

@@ -5,7 +5,7 @@ $(function () {
         colModel: [			
 			{ label: 'id', name: 'id', width: 20, key: true },
             { label: 'URL地址', name: 'url', width: 160 },
-			{ label: '创建时间', name: 'createDate', width: 40 }
+			{ label: '创建 time ', name: 'createDate', width: 40 }
         ],
 		viewrecords: true,
         height: 385,
@@ -40,7 +40,7 @@ $(function () {
         responseType:"json",
         onSubmit:function(file, extension){
             if(vm.config.type == null){
-                alert("云存储配置未配置");
+                alert("cloud storeage配置未配置");
                 return false;
             }
             if (!(extension && /^(jpg|jpeg|png|gif)$/.test(extension.toLowerCase()))){
@@ -81,7 +81,7 @@ var vm = new Vue({
         },
 		addConfig: function(){
 			vm.showList = false;
-			vm.title = "云存储配置";
+			vm.title = "cloud storeage配置";
 		},
 		saveOrUpdate: function () {
 			var url = baseURL + "sys/oss/saveConfig";

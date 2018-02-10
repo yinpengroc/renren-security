@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -44,7 +44,7 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * 文件上传
+ *  files  upload 
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -73,7 +73,7 @@ public class SysOssController {
 
 
     /**
-     * 云存储配置信息
+     * cloud storeage配置信息
      */
     @RequestMapping("/config")
     @RequiresPermissions("sys:oss:all")
@@ -85,7 +85,7 @@ public class SysOssController {
 
 
 	/**
-	 * 保存云存储配置信息
+	 * 保存cloud storeage配置信息
 	 */
 	@RequestMapping("/saveConfig")
 	@RequiresPermissions("sys:oss:all")
@@ -111,20 +111,20 @@ public class SysOssController {
 	
 
 	/**
-	 * 上传文件
+	 *  upload  files 
 	 */
 	@RequestMapping("/upload")
 	@RequiresPermissions("sys:oss:all")
 	public R upload(@RequestParam("file") MultipartFile file) throws Exception {
 		if (file.isEmpty()) {
-			throw new RRException("上传文件不能为空");
+			throw new RRException(" upload  files 不能为空");
 		}
 
-		//上传文件
+		// upload  files 
 		String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
 		String url = OSSFactory.build().uploadSuffix(file.getBytes(), suffix);
 
-		//保存文件信息
+		//保存 files 信息
 		SysOssEntity ossEntity = new SysOssEntity();
 		ossEntity.setUrl(url);
 		ossEntity.setCreateDate(new Date());

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -24,25 +24,25 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * 云存储(支持七牛、阿里云、腾讯云、又拍云)
+ * cloud storeage(支持七牛、阿里云、腾讯云、又拍云)
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-25 14:58
  */
 public abstract class CloudStorageService {
-    /** 云存储配置信息 */
+    /** cloud storeage配置信息 */
     CloudStorageConfig config;
 
     /**
-     * 文件路径
+     *  files 路径
      * @param prefix 前缀
      * @param suffix 后缀
-     * @return 返回上传路径
+     * @return 返回 upload 路径
      */
     public String getPath(String prefix, String suffix) {
         //生成uuid
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-        //文件路径
+        // files 路径
         String path = DateUtils.format(new Date(), "yyyyMMdd") + "/" + uuid;
 
         if(StringUtils.isNotBlank(prefix)){
@@ -53,31 +53,31 @@ public abstract class CloudStorageService {
     }
 
     /**
-     * 文件上传
-     * @param data    文件字节数组
-     * @param path    文件路径，包含文件名
+     *  files  upload 
+     * @param data     files 字节数组
+     * @param path     files 路径，包含 files 名
      * @return        返回http地址
      */
     public abstract String upload(byte[] data, String path);
 
     /**
-     * 文件上传
-     * @param data     文件字节数组
+     *  files  upload 
+     * @param data      files 字节数组
      * @param suffix   后缀
      * @return         返回http地址
      */
     public abstract String uploadSuffix(byte[] data, String suffix);
 
     /**
-     * 文件上传
+     *  files  upload 
      * @param inputStream   字节流
-     * @param path          文件路径，包含文件名
+     * @param path           files 路径，包含 files 名
      * @return              返回http地址
      */
     public abstract String upload(InputStream inputStream, String path);
 
     /**
-     * 文件上传
+     *  files  upload 
      * @param inputStream  字节流
      * @param suffix       后缀
      * @return             返回http地址

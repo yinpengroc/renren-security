@@ -131,7 +131,7 @@ var Dept = {
 };
 
 /**
- * 初始化表格的列
+ * initiation表格的列
  */
 Dept.initColumn = function () {
     var columns = [

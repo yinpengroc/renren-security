@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -40,7 +40,7 @@ import java.lang.reflect.Method;
 import java.util.Date;
 
 /**
- * 系统日志，切面处理类
+ * 系统日志，切面 deal with类
  *
  * @author Mark yinpenghawk@gmail.com
  * @since 1.3.0 2017-03-08
@@ -97,7 +97,7 @@ public class SysLogAspect {
 
 		//获取request
 		HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
-		//设置IP地址
+		// config IP地址
 		sysLog.setIp(IPUtils.getIpAddr(request));
 
 		// Users名

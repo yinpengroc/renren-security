@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -46,7 +46,7 @@ public class SysUserRoleEntity implements Serializable {
 	private Long roleId;
 
 	/**
-	 * 设置：
+	 *  config ：
 	 * @param id 
 	 */
 	public void setId(Long id) {
@@ -62,7 +62,7 @@ public class SysUserRoleEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置： UsersID
+	 *  config ： UsersID
 	 * @param userId  UsersID
 	 */
 	public void setUserId(Long userId) {
@@ -78,7 +78,7 @@ public class SysUserRoleEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：角色ID
+	 *  config ：角色ID
 	 * @param roleId 角色ID
 	 */
 	public void setRoleId(Long roleId) {

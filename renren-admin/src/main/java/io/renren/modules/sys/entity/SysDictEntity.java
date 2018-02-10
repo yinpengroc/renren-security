@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -70,7 +70,7 @@ public class SysDictEntity implements Serializable {
 	private Integer delFlag;
 
 	/**
-	 * 设置：
+	 *  config ：
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -82,7 +82,7 @@ public class SysDictEntity implements Serializable {
 		return id;
 	}
 	/**
-	 * 设置：字典名称
+	 *  config ：字典名称
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -94,7 +94,7 @@ public class SysDictEntity implements Serializable {
 		return name;
 	}
 	/**
-	 * 设置：字典类型
+	 *  config ：字典类型
 	 */
 	public void setType(String type) {
 		this.type = type;
@@ -106,7 +106,7 @@ public class SysDictEntity implements Serializable {
 		return type;
 	}
 	/**
-	 * 设置：字典码
+	 *  config ：字典码
 	 */
 	public void setCode(String code) {
 		this.code = code;
@@ -118,7 +118,7 @@ public class SysDictEntity implements Serializable {
 		return code;
 	}
 	/**
-	 * 设置：字典值
+	 *  config ：字典值
 	 */
 	public void setValue(String value) {
 		this.value = value;
@@ -130,7 +130,7 @@ public class SysDictEntity implements Serializable {
 		return value;
 	}
 	/**
-	 * 设置：排序
+	 *  config ：排序
 	 */
 	public void setOrderNum(Integer orderNum) {
 		this.orderNum = orderNum;
@@ -142,7 +142,7 @@ public class SysDictEntity implements Serializable {
 		return orderNum;
 	}
 	/**
-	 * 设置：备注
+	 *  config ：备注
 	 */
 	public void setRemark(String remark) {
 		this.remark = remark;
@@ -154,7 +154,7 @@ public class SysDictEntity implements Serializable {
 		return remark;
 	}
 	/**
-	 * 设置：删除标记  -1：已删除  0：正常
+	 *  config ：删除标记  -1：已删除  0：正常
 	 */
 	public void setDelFlag(Integer delFlag) {
 		this.delFlag = delFlag;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -19,7 +19,7 @@ package io.renren.annotation;
 import java.lang.annotation.*;
 
 /**
- * 登录效验
+ *  Login效验
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017/9/23 14:30

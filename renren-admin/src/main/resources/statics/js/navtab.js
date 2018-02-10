@@ -12,7 +12,7 @@ layui.define(['element'], function(exports){
 	};
     var ELEM = {};
     /**
-     * [参数设置 options]
+     * [参数 config  options]
      */
     LarryTab.prototype.set = function(options){
           var _this = this;
@@ -20,14 +20,14 @@ layui.define(['element'], function(exports){
           return _this;
     };
     /**
-     * [init Object初始化]
-     * @return {[type]} [返回Object初始化结果]
+     * [init Objectinitiation]
+     * @return {[type]} [返回Objectinitiation结果]
      */
     LarryTab.prototype.init  = function(){
          var _this = this;
          var _config = _this.config;
          if(typeof(_config.elem) !== 'string' && typeof(_config.elem) !== 'object') {
-		       layer.alert('Tab选项卡错误提示: elem参数未定义或设置出错，具体设置格式请参考 DocumentsAPI.');
+		       layer.alert('Tab选项卡错误提示: elem参数未定义或 config 出错，具体 config 格式请参考 DocumentsAPI.');
 	     }
 	     var $container;
 	     if(typeof(_config.elem) === 'string') {
@@ -42,7 +42,7 @@ layui.define(['element'], function(exports){
 	     }
 	     var filter = $container.attr('lay-filter');
 	     if(filter === undefined || filter === '') {
-		      layer.alert('Tab选项卡错误提示:请为elem容器设置一个lay-filter过滤器');
+		      layer.alert('Tab选项卡错误提示:请为elem容器 config 一个lay-filter过滤器');
 	     }
 	     _config.elem = $container;
 	     ELEM.titleBox = $container.children('ul.layui-tab-title');

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * 七牛云存储
+ * 七牛cloud storeage
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-25 15:41
@@ -40,7 +40,7 @@ public class QiniuCloudStorageService extends CloudStorageService {
     public QiniuCloudStorageService(CloudStorageConfig config){
         this.config = config;
 
-        //初始化
+        //initiation
         init();
     }
 
@@ -55,10 +55,10 @@ public class QiniuCloudStorageService extends CloudStorageService {
         try {
             Response res = uploadManager.put(data, path, token);
             if (!res.isOK()) {
-                throw new RuntimeException("上传七牛出错：" + res.toString());
+                throw new RuntimeException(" upload 七牛出错：" + res.toString());
             }
         } catch (Exception e) {
-            throw new RRException("上传文件失败，请核对七牛配置信息", e);
+            throw new RRException(" upload  files 失败，请核对七牛配置信息", e);
         }
 
         return config.getQiniuDomain() + "/" + path;
@@ -70,7 +70,7 @@ public class QiniuCloudStorageService extends CloudStorageService {
             byte[] data = IOUtils.toByteArray(inputStream);
             return this.upload(data, path);
         } catch (IOException e) {
-            throw new RRException("上传文件失败", e);
+            throw new RRException(" upload  files 失败", e);
         }
     }
 

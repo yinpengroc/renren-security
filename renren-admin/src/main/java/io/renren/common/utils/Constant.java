@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -23,7 +23,7 @@ package io.renren.common.utils;
  * @since 1.0.0 2016-11-15
  */
 public class Constant {
-	/** 超级管理员ID */
+	/** 超级AdminID */
 	public static final int SUPER_ADMIN = 1;
     /** 数据权限过滤 */
 	public static final String SQL_FILTER = "sql_filter";

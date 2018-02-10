@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -34,7 +34,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Shiro的配置文件
+ * Shiro的配置 files 
  *
  * @author Mark yinpenghawk@gmail.com
  * @since 3.0.0 2017-09-27
@@ -47,7 +47,7 @@ public class ShiroConfig {
                                          @Value("${renren.redis.open}") boolean redisOpen,
                                          @Value("${renren.shiro.redis}") boolean shiroRedis){
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-        //设置session过期时间为1小时(单位：毫秒)，默认为30分钟
+        // config session过期 time 为1小时(单位：毫秒)，默认为30分钟
         sessionManager.setGlobalSessionTimeout(60 * 60 * 1000);
         sessionManager.setSessionValidationSchedulerEnabled(true);
         sessionManager.setSessionIdUrlRewritingEnabled(false);

@@ -14,7 +14,7 @@ $(function () {
 					'<span class="label label-danger pointer" onclick="vm.showError('+row.logId+')">失败</span>';
 			}},
 			{ label: '耗时(单位：毫秒)', name: 'times', width: 70 },
-			{ label: '执行时间', name: 'createTime', width: 80 }
+			{ label: '执行 time ', name: 'createTime', width: 80 }
         ],
 		viewrecords: true,
         height: 385,

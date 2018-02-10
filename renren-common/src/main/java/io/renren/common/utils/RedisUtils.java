@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -47,7 +47,7 @@ public class RedisUtils {
     private ZSetOperations<String, Object> zSetOperations;
     /**  默认过期时长，单位：秒 */
     public final static long DEFAULT_EXPIRE = 60 * 60 * 24;
-    /**  不设置过期时长 */
+    /**  不 config 过期时长 */
     public final static long NOT_EXPIRE = -1;
 
     public void set(String key, Object value, long expire){

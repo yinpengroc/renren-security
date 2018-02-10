@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -73,12 +73,12 @@ public class SysRoleEntity implements Serializable {
 	private List<Long> deptIdList;
 	
 	/**
-	 * 创建时间
+	 * 创建 time 
 	 */
 	private Date createTime;
 
 	/**
-	 * 设置：
+	 *  config ：
 	 * @param roleId 
 	 */
 	public void setRoleId(Long roleId) {
@@ -94,7 +94,7 @@ public class SysRoleEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：角色名称
+	 *  config ：角色名称
 	 * @param roleName 角色名称
 	 */
 	public void setRoleName(String roleName) {
@@ -110,7 +110,7 @@ public class SysRoleEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：备注
+	 *  config ：备注
 	 * @param remark 备注
 	 */
 	public void setRemark(String remark) {

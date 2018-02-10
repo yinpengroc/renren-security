@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -64,7 +64,7 @@ public class UserRealm extends AuthorizingRealm {
 		
 		List<String> permsList;
 		
-		//系统管理员，拥有最高权限
+		//系统Admin，拥有最高权限
 		if(userId == Constant.SUPER_ADMIN){
 			List<SysMenuEntity> menuList = sysMenuDao.selectList(null);
 			permsList = new ArrayList<>(menuList.size());
@@ -90,7 +90,7 @@ public class UserRealm extends AuthorizingRealm {
 	}
 
 	/**
-	 * 认证(登录时调用)
+	 * 认证( Login时调用)
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(

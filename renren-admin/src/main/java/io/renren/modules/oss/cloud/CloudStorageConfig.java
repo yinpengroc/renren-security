@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -28,7 +28,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
- * 云存储配置信息
+ * cloud storeage配置信息
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-25 16:12

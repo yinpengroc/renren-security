@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -78,12 +78,12 @@ public class ScheduleJobEntity implements Serializable {
 	private String remark;
 
 	/**
-	 * 创建时间
+	 * 创建 time 
 	 */
 	private Date createTime;
 
 	/**
-	 * 设置：任务id
+	 *  config ：任务id
 	 * @param jobId 任务id
 	 */
 	public void setJobId(Long jobId) {
@@ -131,7 +131,7 @@ public class ScheduleJobEntity implements Serializable {
 	}
 
 	/**
-	 * 设置：任务状态
+	 *  config ：任务状态
 	 * @param status 任务状态
 	 */
 	public void setStatus(Integer status) {
@@ -147,7 +147,7 @@ public class ScheduleJobEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：cron表达式
+	 *  config ：cron表达式
 	 * @param cronExpression cron表达式
 	 */
 	public void setCronExpression(String cronExpression) {
@@ -163,15 +163,15 @@ public class ScheduleJobEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：创建时间
-	 * @param createTime 创建时间
+	 *  config ：创建 time 
+	 * @param createTime 创建 time 
 	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
 	/**
-	 * 获取：创建时间
+	 * 获取：创建 time 
 	 * @return Date
 	 */
 	public Date getCreateTime() {

@@ -73,12 +73,12 @@ $.jgrid.regional["cn"] = {
             maxValue:"输值必须小于等于 ",
             email: "这不是有效的e-mail地址",
             integer: "请输入有效整数",
-            date: "请输入有效时间",
+            date: "请输入有效 time ",
             url: "无效网址。前缀必须为 ('http://' 或 'https://')",
             nodefined : " 未定义！",
             novalue : " 需要返回值！",
-            customarray : "自定义函数需要返回数组！",
-            customfcheck : "必须有自定义函数!"
+            customarray : " defined函数需要返回数组！",
+            customfcheck : "必须有 defined函数!"
         }
     },
     view : {
@@ -119,8 +119,8 @@ $.jgrid.regional["cn"] = {
     },
     errors : {
         errcap : "错误",
-        nourl : "没有设置url",
-        norecords: "没有要处理的记录",
+        nourl : "没有 config url",
+        norecords: "没有要 deal with的记录",
         model : "colNames 和 colModel 长度不等！"
     },
     formatter : {

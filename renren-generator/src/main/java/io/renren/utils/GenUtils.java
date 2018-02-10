@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -109,7 +109,7 @@ public class GenUtils {
 			tableEntity.setPk(tableEntity.getColumns().get(0));
 		}
 		
-		//设置velocity资源加载器
+		// config velocity资源加载器
 		Properties prop = new Properties();  
 		prop.put("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");  
 		Velocity.init(prop);
@@ -180,12 +180,12 @@ public class GenUtils {
 		try {
 			return new PropertiesConfiguration("generator.properties");
 		} catch (ConfigurationException e) {
-			throw new RRException("获取配置文件失败，", e);
+			throw new RRException("获取配置 files 失败，", e);
 		}
 	}
 
 	/**
-	 * 获取文件名
+	 * 获取 files 名
 	 */
 	public static String getFileName(String template, String className, String packageName, String moduleName) {
 		String packagePath = "main" + File.separator + "java" + File.separator;

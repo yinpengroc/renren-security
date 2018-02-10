@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -37,7 +37,7 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 /**
- * 数据过滤，切面处理类
+ * 数据过滤，切面 deal with类
  *
  * @author Mark yinpenghawk@gmail.com
  * @since 3.0.0 2017-09-17
@@ -63,7 +63,7 @@ public class DataFilterAspect {
         if(params != null && params instanceof Map){
             SysUserEntity user = ShiroUtils.getUserEntity();
 
-            //如果不是超级管理员，则进行数据过滤
+            //如果不是超级Admin，则进行数据过滤
             if(user.getUserId() != Constant.SUPER_ADMIN){
                 Map map = (Map)params;
                 map.put(Constant.SQL_FILTER, getSQLFilter(user, point));

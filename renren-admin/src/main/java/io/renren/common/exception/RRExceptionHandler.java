@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * 异常处理器
+ *  Exception deal with
  *
  * @author Mark yinpenghawk@gmail.com
  * @since 1.0.0 2016-10-27
@@ -35,7 +35,7 @@ public class RRExceptionHandler {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	/**
-	 * 处理自定义异常
+	 *  deal with defined Exception
 	 */
 	@ExceptionHandler(RRException.class)
 	public R handleRRException(RRException e){
@@ -55,7 +55,7 @@ public class RRExceptionHandler {
 	@ExceptionHandler(AuthorizationException.class)
 	public R handleAuthorizationException(AuthorizationException e){
 		logger.error(e.getMessage(), e);
-		return R.error("没有权限，请联系管理员授权");
+		return R.error("没有权限，请联系Admin授权");
 	}
 
 	@ExceptionHandler(Exception.class)

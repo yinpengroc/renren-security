@@ -7,7 +7,7 @@
             return $.fn.bootstrapTreeTable.methods[options](this, param);
         }
 
-        // 如果是初始化组件
+        // 如果是initiation组件
         options = $.extend({}, $.fn.bootstrapTreeTable.defaults, options || {});
         // 是否有radio或checkbox
         var hasSelectItem = false;
@@ -49,7 +49,7 @@
             return result;
         };
         var j = 0;
-        // 递归获取子节点并且设置子节点
+        // 递归获取子节点并且 config 子节点
         target.getChildNodes = function(data, parentNode, parentIndex, tbody) {
             $.each(data, function(i, item) {
                 if (item[options.parentCode] == parentNode[options.code]) {
@@ -156,16 +156,16 @@
                         }
                     });
                     target.append(tbody);
-                    // 初始化treegrid
+                    // initiationtreegrid
                     target.treegrid({
-                        treeColumn: options.expandColumn?options.expandColumn:(hasSelectItem?1:0),//如果有radio或checkbox默认第二列层级显示，当前是在 Users未设置的提前下
+                        treeColumn: options.expandColumn?options.expandColumn:(hasSelectItem?1:0),//如果有radio或checkbox默认第二列层级显示，当前是在 Users未 config 的提前下
                         expanderExpandedClass : options.expanderExpandedClass,
                         expanderCollapsedClass : options.expanderCollapsedClass
                     });
                     if (!options.expandAll) {
                         target.treegrid('collapseAll');
                     }
-                    //动态设置表头宽度
+                    //动态 config 表头宽度
                     //thead.css("width", tbody.children(":first").css("width"));
                     // 行点击选中事件
                     target.find("tbody").find("tr").click(function(){
@@ -197,7 +197,7 @@
         if (options.url) {
             target.load();
         } else {
-            // 也可以通过defaults里面的data属性通过传递一个数据集合进来对组件进行初始化....有兴趣可以自己实现，思路和上述类似
+            // 也可以通过defaults里面的data属性通过传递一个数据集合进来对组件进行initiation....有兴趣可以自己实现，思路和上述类似
         }
 
         return target;
@@ -234,9 +234,9 @@
 
     $.fn.bootstrapTreeTable.defaults = {
         id : 'menuId',// 选取记录返回的值
-        code : 'menuId',// 用于设置父子关系
-        parentCode : 'parentId',// 用于设置父子关系
-        rootCodeValue: null,//设置根节点code值----可指定根节点，默认为null,"",0,"0"
+        code : 'menuId',// 用于 config 父子关系
+        parentCode : 'parentId',// 用于 config 父子关系
+        rootCodeValue: null,// config 根节点code值----可指定根节点，默认为null,"",0,"0"
         data : [], // 构造table的数据集合
         type : "GET", // 请求数据的ajax类型
         url : null, // 请求数据的ajax的url

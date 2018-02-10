@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -38,7 +38,7 @@ public interface TokenService extends IService<TokenEntity> {
 	TokenEntity createToken(long userId);
 
 	/**
-	 * 设置token过期
+	 *  config token过期
 	 * @param userId  UsersID
 	 */
 	void expireToken(long userId);

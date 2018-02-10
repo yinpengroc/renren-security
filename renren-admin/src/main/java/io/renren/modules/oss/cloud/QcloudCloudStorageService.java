@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * 腾讯云存储
+ * 腾讯cloud storeage
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-26 20:51
@@ -40,7 +40,7 @@ public class QcloudCloudStorageService extends CloudStorageService {
     public QcloudCloudStorageService(CloudStorageConfig config){
         this.config = config;
 
-        //初始化
+        //initiation
         init();
     }
 
@@ -48,9 +48,9 @@ public class QcloudCloudStorageService extends CloudStorageService {
     	Credentials credentials = new Credentials(config.getQcloudAppId(), config.getQcloudSecretId(),
                 config.getQcloudSecretKey());
     	
-    	//初始化客户端配置
+    	//initiation客户端配置
         ClientConfig clientConfig = new ClientConfig();
-        //设置bucket所在的区域，华南：gz 华北：tj 华东：sh
+        // config bucket所在的区域，华南：gz 华北：tj 华东：sh
         clientConfig.setRegion(config.getQcloudRegion());
         
     	client = new COSClient(clientConfig, credentials);
@@ -63,13 +63,13 @@ public class QcloudCloudStorageService extends CloudStorageService {
             path = "/" + path;
         }
         
-        //上传到腾讯云
+        // upload 到腾讯云
         UploadFileRequest request = new UploadFileRequest(config.getQcloudBucketName(), path, data);
         String response = client.uploadFile(request);
 
         JSONObject jsonObject = JSONObject.fromObject(response);
         if(jsonObject.getInt("code") != 0) {
-            throw new RRException("文件上传失败，" + jsonObject.getString("message"));
+            throw new RRException(" files  upload 失败，" + jsonObject.getString("message"));
         }
 
         return config.getQcloudDomain() + path;
@@ -81,7 +81,7 @@ public class QcloudCloudStorageService extends CloudStorageService {
             byte[] data = IOUtils.toByteArray(inputStream);
             return this.upload(data, path);
         } catch (IOException e) {
-            throw new RRException("上传文件失败", e);
+            throw new RRException(" upload  files 失败", e);
         }
     }
 

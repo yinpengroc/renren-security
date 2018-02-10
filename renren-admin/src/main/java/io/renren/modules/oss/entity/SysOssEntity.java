@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -24,7 +24,7 @@ import java.util.Date;
 
 
 /**
- * 文件上传
+ *  files  upload 
  * 
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -38,11 +38,11 @@ public class SysOssEntity implements Serializable {
 	private Long id;
 	//URL地址
 	private String url;
-	//创建时间
+	//创建 time 
 	private Date createDate;
 
 	/**
-	 * 设置：
+	 *  config ：
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -54,7 +54,7 @@ public class SysOssEntity implements Serializable {
 		return id;
 	}
 	/**
-	 * 设置：URL地址
+	 *  config ：URL地址
 	 */
 	public void setUrl(String url) {
 		this.url = url;
@@ -66,13 +66,13 @@ public class SysOssEntity implements Serializable {
 		return url;
 	}
 	/**
-	 * 设置：创建时间
+	 *  config ：创建 time 
 	 */
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 	/**
-	 * 获取：创建时间
+	 * 获取：创建 time 
 	 */
 	public Date getCreateDate() {
 		return createDate;

@@ -14,15 +14,15 @@ paths:
   /captcha.jpg:
     get:
       tags:
-        -  Users登录
+        -  Users Login
       summary: 获取验证码
       produces:
         - application/octet-stream
   /sys/login:
     post:
       tags:
-        -  Users登录
-      summary:  Users登录
+        -  Users Login
+      summary:  Users Login
       produces:
         - application/json
       parameters:
@@ -64,8 +64,8 @@ paths:
   /sys/user/list:
     get:
       tags:
-        - 管理员管理
-      summary: 管理员列表
+        - Admin管理
+      summary: Admin列表
       produces:
         - application/json
       parameters:
@@ -93,26 +93,26 @@ paths:
           type: string
       responses:
         '200':
-          description: 返回管理员列表
+          description: 返回Admin列表
           schema:
             $ref: '#/definitions/SysUserEntity'
   /sys/user/info:
     get:
       tags:
-        - 管理员管理
-      summary: 当前管理员信息
+        - Admin管理
+      summary: 当前Admin信息
       produces:
         - application/json
       responses:
         '200':
-          description: 返回当前管理员信息
+          description: 返回当前Admin信息
           schema:
             $ref: '#/definitions/SysUserEntity'
   /sys/user/info/{userId}:
     get:
       tags:
-        - 管理员管理
-      summary: 获取管理员信息
+        - Admin管理
+      summary: 获取Admin信息
       produces:
         - application/json
       parameters:
@@ -123,13 +123,13 @@ paths:
           required: true
       responses:
         '200':
-          description: 返回管理员信息
+          description: 返回Admin信息
           schema:
             $ref: '#/definitions/SysUserEntity'
   /sys/user/password:
     post:
       tags:
-        - 管理员管理
+        - Admin管理
       summary: 修改密码
       produces:
         - application/json
@@ -151,13 +151,13 @@ paths:
   /sys/user/save:
     post:
       tags:
-        - 管理员管理
-      summary: 添加管理员
+        - Admin管理
+      summary: 添加Admin
       produces:
         - application/json
       parameters:
         - name: body
-          description: 管理员Object
+          description: AdminObject
           in: body
           type: string
           schema:
@@ -170,13 +170,13 @@ paths:
   /sys/user/update:
     post:
       tags:
-        - 管理员管理
-      summary: 修改管理员
+        - Admin管理
+      summary: 修改Admin
       produces:
         - application/json
       parameters:
         - name: body
-          description: 管理员Object
+          description: AdminObject
           in: body
           type: string
           schema:
@@ -189,8 +189,8 @@ paths:
   /sys/user/delete:
     post:
       tags:
-        - 管理员管理
-      summary: 删除管理员
+        - Admin管理
+      summary: 删除Admin
       produces:
         - application/json
       parameters:
@@ -237,7 +237,7 @@ paths:
     get:
       tags:
         - 部门管理
-      summary: 获取上级部门Id(管理员则为0)
+      summary: 获取上级部门Id(Admin则为0)
       produces:
         - application/json
       responses:
@@ -367,7 +367,7 @@ paths:
           type: string
       responses:
         '200':
-          description: 返回管理员列表
+          description: 返回Admin列表
           schema:
             $ref: '#/definitions/SysRoleEntity'
   /sys/role/select:
@@ -375,12 +375,12 @@ paths:
       tags:
         - 角色管理
       summary: 当前账号角色列表
-      description: 如果是超级管理员，则能查询所有的角色列表
+      description: 如果是超级Admin，则能查询所有的角色列表
       produces:
         - application/json
       responses:
         '200':
-          description: 返回管理员列表
+          description: 返回Admin列表
           schema:
             $ref: '#/definitions/SysRoleEntity'
   /sys/role/info/{roleId}:
@@ -728,8 +728,8 @@ paths:
   /sys/oss/list:
     get:
       tags:
-        - 文件服务
-      summary: 文件列表
+        -  files 服务
+      summary:  files 列表
       produces:
         - application/json
       parameters:
@@ -753,26 +753,26 @@ paths:
           type: string
       responses:
         '200':
-          description: 返回文件列表
+          description: 返回 files 列表
           schema:
             $ref: '#/definitions/SysOssEntity'
   /sys/oss/config:
     get:
       tags:
-        - 文件服务
-      summary: 云存储配置信息
+        -  files 服务
+      summary: cloud storeage配置信息
       produces:
         - application/json
       responses:
         '200':
-          description: 返回云存储配置信息
+          description: 返回cloud storeage配置信息
           schema:
             $ref: '#/definitions/SysCloudStorageEntity'
   /sys/oss/saveConfig:
     post:
       tags:
-        - 文件服务
-      summary: 保存云存储配置信息
+        -  files 服务
+      summary: 保存cloud storeage配置信息
       produces:
         - application/json
       parameters:
@@ -790,21 +790,21 @@ paths:
   /sys/oss/upload:
     post:
       tags:
-        - 文件服务
-      summary: 上传文件
+        -  files 服务
+      summary:  upload  files 
       consumes:
         - multipart/form-data
       produces:
         - application/json
       parameters:
         - name: file
-          description: 文件
+          description:  files 
           in: formData
           type: file
           required: true
       responses:
         '200':
-          description: 返回文件列表
+          description: 返回 files 列表
           schema:
             type: object
             properties:
@@ -813,7 +813,7 @@ paths:
                 type: integer
                 format: int32
               url:
-                description: 文件URL地址
+                description:  files URL地址
                 type: string
               msg:
                 description: 失败原因
@@ -821,13 +821,13 @@ paths:
   /sys/oss/delete:
     post:
       tags:
-        - 文件服务
-      summary: 删除文件
+        -  files 服务
+      summary: 删除 files 
       produces:
         - application/json
       parameters:
         - name: body
-          description: 文件ID列表
+          description:  files ID列表
           in: body
           type: array
           items:
@@ -1069,7 +1069,7 @@ definitions:
         type: integer
         format: int64
       createTime:
-        description: 创建时间
+        description: 创建 time 
         type: string
         format: date-time
   SysUserEntityEdit:
@@ -1175,7 +1175,7 @@ definitions:
         type: integer
         format: int64
       createTime:
-        description: 创建时间
+        description: 创建 time 
         type: string
         format: date-time
   SysRoleEntityEdit:
@@ -1297,7 +1297,7 @@ definitions:
         description: IP地址
         type: string
       createTime:
-        description: 创建时间
+        description: 创建 time 
         type: string
         format: date-time
   SysConfigEntity:
@@ -1327,7 +1327,7 @@ definitions:
         description: URL地址
         type: string
       createTime:
-        description: 创建时间
+        description: 创建 time 
         type: string
         format: date-time
   SysCloudStorageEntity:
@@ -1418,7 +1418,7 @@ definitions:
         description: 备注
         type: string
       createTime:
-        description: 创建时间
+        description: 创建 time 
         type: string
         format: date-time
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -35,9 +35,9 @@ public interface UserService extends IService<UserEntity> {
 	UserEntity queryByMobile(String mobile);
 
 	/**
-	 *  Users登录
-	 * @param form    登录 Form
-	 * @return        返回登录信息
+	 *  Users Login
+	 * @param form     Login Form
+	 * @return        返回 Login信息
 	 */
 	Map<String, Object> login(LoginForm form);
 }

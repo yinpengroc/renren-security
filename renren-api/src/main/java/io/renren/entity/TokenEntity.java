@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -43,16 +43,16 @@ public class TokenEntity implements Serializable {
 	private Long userId;
 	private String token;
 	/**
-	 * 过期时间
+	 * 过期 time 
 	 */
 	private Date expireTime;
 	/**
-	 * 更新时间
+	 * 更新 time 
 	 */
 	private Date updateTime;
 
 	/**
-	 * 设置： UsersID
+	 *  config ： UsersID
 	 */
 	public void setUserId(Long userId) {
 		this.userId = userId;
@@ -64,7 +64,7 @@ public class TokenEntity implements Serializable {
 		return userId;
 	}
 	/**
-	 * 设置：token
+	 *  config ：token
 	 */
 	public void setToken(String token) {
 		this.token = token;
@@ -76,25 +76,25 @@ public class TokenEntity implements Serializable {
 		return token;
 	}
 	/**
-	 * 设置：过期时间
+	 *  config ：过期 time 
 	 */
 	public void setExpireTime(Date expireTime) {
 		this.expireTime = expireTime;
 	}
 	/**
-	 * 获取：过期时间
+	 * 获取：过期 time 
 	 */
 	public Date getExpireTime() {
 		return expireTime;
 	}
 	/**
-	 * 设置：更新时间
+	 *  config ：更新 time 
 	 */
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 	/**
-	 * 获取：更新时间
+	 * 获取：更新 time 
 	 */
 	public Date getUpdateTime() {
 		return updateTime;

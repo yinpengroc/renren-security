@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -74,7 +74,7 @@ public class ScheduleJobLogEntity implements Serializable {
 	private Integer times;
 	
 	/**
-	 * 创建时间
+	 * 创建 time 
 	 */
 	private Date createTime;
 

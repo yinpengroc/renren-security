@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -21,12 +21,12 @@ import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- * 登录 Form
+ *  Login Form
  *
  * @author Mark yinpenghawk@gmail.com
  * @since 3.1.0 2018-01-25
  */
-@ApiModel(value = "登录 Form")
+@ApiModel(value = " Login Form")
 public class LoginForm {
     @ApiModelProperty(value = "手机号")
     @NotBlank(message="手机号不能为空")

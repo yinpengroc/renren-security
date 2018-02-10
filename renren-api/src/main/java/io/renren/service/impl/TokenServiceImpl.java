@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -41,9 +41,9 @@ public class TokenServiceImpl extends ServiceImpl<TokenDao, TokenEntity> impleme
 
 	@Override
 	public TokenEntity createToken(long userId) {
-		//当前时间
+		//当前 time 
 		Date now = new Date();
-		//过期时间
+		//过期 time 
 		Date expireTime = new Date(now.getTime() + EXPIRE * 1000);
 
 		//生成token

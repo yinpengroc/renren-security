@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -44,7 +44,7 @@ public class ValidatorUtils {
      * validateObject
      * @param object        待validateObject
      * @param groups        待validate的组
-     * @throws RRException  validate不通过，则报RRException异常
+     * @throws RRException  validate不通过，则报RRException Exception
      */
     public static void validateEntity(Object object, Class<?>... groups)
             throws RRException {

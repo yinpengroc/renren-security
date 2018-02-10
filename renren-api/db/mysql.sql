@@ -4,7 +4,7 @@ CREATE TABLE `tb_user` (
   `username` varchar(50) NOT NULL COMMENT ' Users名',
   `mobile` varchar(20) NOT NULL COMMENT '手机号',
   `password` varchar(64) COMMENT '密码',
-  `create_time` datetime COMMENT '创建时间',
+  `create_time` datetime COMMENT '创建 time ',
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT=' Users';
@@ -13,8 +13,8 @@ CREATE TABLE `tb_user` (
 CREATE TABLE `tb_token` (
   `user_id` bigint NOT NULL,
   `token` varchar(100) NOT NULL COMMENT 'token',
-  `expire_time` datetime COMMENT '过期时间',
-  `update_time` datetime COMMENT '更新时间',
+  `expire_time` datetime COMMENT '过期 time ',
+  `update_time` datetime COMMENT '更新 time ',
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT=' UsersToken';

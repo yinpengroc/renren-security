@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -47,11 +47,11 @@ public class SysLogEntity implements Serializable {
 	private Long time;
 	//IP地址
 	private String ip;
-	//创建时间
+	//创建 time 
 	private Date createDate;
 
 	/**
-	 * 设置：
+	 *  config ：
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -63,7 +63,7 @@ public class SysLogEntity implements Serializable {
 		return id;
 	}
 	/**
-	 * 设置： Users名
+	 *  config ： Users名
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -75,7 +75,7 @@ public class SysLogEntity implements Serializable {
 		return username;
 	}
 	/**
-	 * 设置： Users操作
+	 *  config ： Users操作
 	 */
 	public void setOperation(String operation) {
 		this.operation = operation;
@@ -87,7 +87,7 @@ public class SysLogEntity implements Serializable {
 		return operation;
 	}
 	/**
-	 * 设置：请求方法
+	 *  config ：请求方法
 	 */
 	public void setMethod(String method) {
 		this.method = method;
@@ -99,7 +99,7 @@ public class SysLogEntity implements Serializable {
 		return method;
 	}
 	/**
-	 * 设置：请求参数
+	 *  config ：请求参数
 	 */
 	public void setParams(String params) {
 		this.params = params;
@@ -111,7 +111,7 @@ public class SysLogEntity implements Serializable {
 		return params;
 	}
 	/**
-	 * 设置：IP地址
+	 *  config ：IP地址
 	 */
 	public void setIp(String ip) {
 		this.ip = ip;
@@ -123,13 +123,13 @@ public class SysLogEntity implements Serializable {
 		return ip;
 	}
 	/**
-	 * 设置：创建时间
+	 *  config ：创建 time 
 	 */
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 	/**
-	 * 获取：创建时间
+	 * 获取：创建 time 
 	 */
 	public Date getCreateDate() {
 		return createDate;

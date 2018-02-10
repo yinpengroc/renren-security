@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>综合权限系统</title>
+  <title>Integrated system</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap.min.css">
@@ -23,11 +23,11 @@
 <body class="hold-transition login-page">
 <div class="login-box" id="rrapp" v-cloak>
   <div class="login-logo">
-    <b>综合权限系统</b>
+    <b>Integrated system</b>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-      <p class="login-box-msg">管理员登录</p>
+      <p class="login-box-msg">Admin Login</p>
       <div v-if="error" class="alert alert-danger alert-dismissible">
         <h4 style="margin-bottom: 0px;"><i class="fa fa-exclamation-triangle"></i> {{errorMsg}}</h4>
       </div>
@@ -56,7 +56,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="button" class="btn btn-primary btn-block btn-flat" @click="login">登录</button>
+          <button type="button" class="btn btn-primary btn-block btn-flat" @click="login"> Login</button>
         </div>
         <!-- /.col -->
       </div>
@@ -100,7 +100,7 @@ var vm = new Vue({
 			    data: data,
 			    dataType: "json",
 			    success: function(result){
-					if(result.code == 0){//登录成功
+					if(result.code == 0){// Login成功
 						parent.location.href ='index.html';
 					}else{
 						vm.error = true;

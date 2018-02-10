@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -30,7 +30,7 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
 /**
- * 有@LoginUser注解的方法参数，注入当前登录 Users
+ * 有@LoginUser注解的方法参数，注入当前 Login Users
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-23 22:02

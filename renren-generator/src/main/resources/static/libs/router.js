@@ -33,7 +33,7 @@
 	};
 
 	/**
-	 * 设置主页地址
+	 *  config 主页地址
 	 * @param index: 主页地址
 	 */
 	Router.prototype.setIndex = function(index) {

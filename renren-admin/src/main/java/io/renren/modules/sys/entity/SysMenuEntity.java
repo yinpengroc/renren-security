@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -100,7 +100,7 @@ public class SysMenuEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：父菜单ID，一级菜单为0
+	 *  config ：父菜单ID，一级菜单为0
 	 * @param parentId 父菜单ID，一级菜单为0
 	 */
 	public void setParentId(Long parentId) {
@@ -116,7 +116,7 @@ public class SysMenuEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：菜单名称
+	 *  config ：菜单名称
 	 * @param name 菜单名称
 	 */
 	public void setName(String name) {
@@ -132,7 +132,7 @@ public class SysMenuEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：菜单URL
+	 *  config ：菜单URL
 	 * @param url 菜单URL
 	 */
 	public void setUrl(String url) {
@@ -164,7 +164,7 @@ public class SysMenuEntity implements Serializable {
 	}
 
 	/**
-	 * 设置：菜单图标
+	 *  config ：菜单图标
 	 * @param icon 菜单图标
 	 */
 	public void setIcon(String icon) {
@@ -180,7 +180,7 @@ public class SysMenuEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：排序
+	 *  config ：排序
 	 * @param orderNum 排序
 	 */
 	public void setOrderNum(Integer orderNum) {

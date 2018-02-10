@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -64,7 +64,7 @@ public class SysUserController extends AbstractController {
 	}
 	
 	/**
-	 * 获取登录的 Users信息
+	 * 获取 Login的 Users信息
 	 */
 	@RequestMapping("/info")
 	public R info(){
@@ -72,7 +72,7 @@ public class SysUserController extends AbstractController {
 	}
 	
 	/**
-	 * 修改登录 Users密码
+	 * 修改 Login Users密码
 	 */
 	@SysLog("修改密码")
 	@RequestMapping("/password")
@@ -144,7 +144,7 @@ public class SysUserController extends AbstractController {
 	@RequiresPermissions("sys:user:delete")
 	public R delete(@RequestBody Long[] userIds){
 		if(ArrayUtils.contains(userIds, 1L)){
-			return R.error("系统管理员不能删除");
+			return R.error("系统Admin不能删除");
 		}
 		
 		if(ArrayUtils.contains(userIds, getUserId())){

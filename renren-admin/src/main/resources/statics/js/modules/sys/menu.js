@@ -149,7 +149,7 @@ var Menu = {
 };
 
 /**
- * 初始化表格的列
+ * initiation表格的列
  */
 Menu.initColumn = function () {
     var columns = [

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -23,7 +23,7 @@ import io.renren.common.utils.SpringContextUtils;
 import io.renren.modules.sys.service.SysConfigService;
 
 /**
- * 文件上传Factory
+ *  files  upload Factory
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-26 10:18
@@ -36,7 +36,7 @@ public final class OSSFactory {
     }
 
     public static CloudStorageService build(){
-        //获取云存储配置信息
+        //获取cloud storeage配置信息
         CloudStorageConfig config = sysConfigService.getConfigObject(ConfigConstant.CLOUD_STORAGE_CONFIG_KEY, CloudStorageConfig.class);
 
         if(config.getType() == Constant.CloudService.QINIU.getValue()){

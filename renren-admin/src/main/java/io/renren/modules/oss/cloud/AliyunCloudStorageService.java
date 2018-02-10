@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -23,7 +23,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 /**
- * 阿里云存储
+ * Ali cloud
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017-03-26 16:22
@@ -34,7 +34,7 @@ public class AliyunCloudStorageService extends CloudStorageService {
     public AliyunCloudStorageService(CloudStorageConfig config){
         this.config = config;
 
-        //初始化
+        //initiation
         init();
     }
 
@@ -53,7 +53,7 @@ public class AliyunCloudStorageService extends CloudStorageService {
         try {
             client.putObject(config.getAliyunBucketName(), path, inputStream);
         } catch (Exception e){
-            throw new RRException("上传文件失败，请检查配置信息", e);
+            throw new RRException(" upload  files 失败，请检查配置信息", e);
         }
 
         return config.getAliyunDomain() + "/" + path;

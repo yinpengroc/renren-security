@@ -1,7 +1,7 @@
 package io.renren.utils;
 
 /**
- * 自定义异常
+ *  defined Exception
  * 
  * @author peng
  * @email yinpenghawk@gmail.com

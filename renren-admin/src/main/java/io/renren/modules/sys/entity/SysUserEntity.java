@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -89,7 +89,7 @@ public class SysUserEntity implements Serializable {
 	private List<Long> roleIdList;
 
 	/**
-	 * 创建时间
+	 * 创建 time 
 	 */
 	private Date createTime;
 
@@ -106,7 +106,7 @@ public class SysUserEntity implements Serializable {
 	private String deptName;
 
 	/**
-	 * 设置：
+	 *  config ：
 	 * @param userId 
 	 */
 	public void setUserId(Long userId) {
@@ -122,7 +122,7 @@ public class SysUserEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置： Users名
+	 *  config ： Users名
 	 * @param username  Users名
 	 */
 	public void setUsername(String username) {
@@ -138,7 +138,7 @@ public class SysUserEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：密码
+	 *  config ：密码
 	 * @param password 密码
 	 */
 	public void setPassword(String password) {
@@ -155,7 +155,7 @@ public class SysUserEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：邮箱
+	 *  config ：邮箱
 	 * @param email 邮箱
 	 */
 	public void setEmail(String email) {
@@ -171,7 +171,7 @@ public class SysUserEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：手机号
+	 *  config ：手机号
 	 * @param mobile 手机号
 	 */
 	public void setMobile(String mobile) {
@@ -187,7 +187,7 @@ public class SysUserEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：状态  0：禁用   1：正常
+	 *  config ：状态  0：禁用   1：正常
 	 * @param status 状态  0：禁用   1：正常
 	 */
 	public void setStatus(Integer status) {
@@ -203,15 +203,15 @@ public class SysUserEntity implements Serializable {
 	}
 	
 	/**
-	 * 设置：创建时间
-	 * @param createTime 创建时间
+	 *  config ：创建 time 
+	 * @param createTime 创建 time 
 	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
 	/**
-	 * 获取：创建时间
+	 * 获取：创建 time 
 	 * @return Date
 	 */
 	public Date getCreateTime() {

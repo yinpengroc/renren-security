@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 IEMoney
+ * Copyright 2018 blockeeper
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -55,12 +55,12 @@ public class UserEntity implements Serializable {
 	@JSONField(serialize=false)
 	private String password;
 	/**
-	 * 创建时间
+	 * 创建 time 
 	 */
 	private Date createTime;
 
 	/**
-	 * 设置： UsersID
+	 *  config ： UsersID
 	 */
 	public void setUserId(Long userId) {
 		this.userId = userId;
@@ -72,7 +72,7 @@ public class UserEntity implements Serializable {
 		return userId;
 	}
 	/**
-	 * 设置： Users名
+	 *  config ： Users名
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -84,7 +84,7 @@ public class UserEntity implements Serializable {
 		return username;
 	}
 	/**
-	 * 设置：手机号
+	 *  config ：手机号
 	 */
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
@@ -96,7 +96,7 @@ public class UserEntity implements Serializable {
 		return mobile;
 	}
 	/**
-	 * 设置：密码
+	 *  config ：密码
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -108,13 +108,13 @@ public class UserEntity implements Serializable {
 		return password;
 	}
 	/**
-	 * 设置：创建时间
+	 *  config ：创建 time 
 	 */
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 	/**
-	 * 获取：创建时间
+	 * 获取：创建 time 
 	 */
 	public Date getCreateTime() {
 		return createTime;
