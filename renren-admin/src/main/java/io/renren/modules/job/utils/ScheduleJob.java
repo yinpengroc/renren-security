@@ -51,7 +51,7 @@ public class ScheduleJob extends QuartzJobBean {
         //获取spring bean
         ScheduleJobLogService scheduleJobLogService = (ScheduleJobLogService) SpringContextUtils.getBean("scheduleJobLogService");
         
-        //数据库保存执行记录
+        //database保存执行记录
         ScheduleJobLogEntity log = new ScheduleJobLogEntity();
         log.setJobId(scheduleJob.getJobId());
         log.setBeanName(scheduleJob.getBeanName());

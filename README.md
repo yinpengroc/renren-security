@@ -1,6 +1,6 @@
 本地部署
 
-创建数据库blockeeper，数据库编码为UTF-8
+创建databaseblockeeper，database编码为UTF-8
 执行db/mysql.sql files ，initiation数据【按需导入表结构及数据】
 修改application-dev.yml files ，更新MySQL账号和密码
 在renren-security目录下，执行mvn clean install
