@@ -4,6 +4,7 @@ package io.renren.controller;
 import io.renren.annotation.Login;
 import io.renren.common.utils.R;
 import io.renren.common.validator.ValidatorUtils;
+import io.renren.config.ApiYmlConfig;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
 import io.renren.service.UserService;
@@ -30,6 +31,8 @@ public class ApiLoginController {
     private UserService userService;
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private ApiYmlConfig config;
 
 
     @PostMapping("login")
@@ -37,7 +40,6 @@ public class ApiLoginController {
     public R login(@RequestBody LoginForm form){
         // Formvalidate
         ValidatorUtils.validateEntity(form);
-
         // Users Login
         Map<String, Object> map = userService.login(form);
 
