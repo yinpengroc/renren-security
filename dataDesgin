@@ -1,0 +1,5 @@
+user: 
+{address,name,[taglist],[taxlist],[transactions list][trackAddresslist,alias]}
+
+transaction list:
+{hashcode,note,tag,tax,from, to, value,time}
