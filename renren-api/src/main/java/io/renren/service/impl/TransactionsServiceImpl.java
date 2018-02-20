@@ -65,6 +65,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 	public Map<String, Object> getBalanceByAddress(String address) {
 		// TODO Auto-generated method stub
 		Map<String, Object> map = new HashMap<>(1);
+		//todo
 		String rs = getResponseFromRemote(ApiConfig.getInstance().getBalance(address));
 
 		return map;

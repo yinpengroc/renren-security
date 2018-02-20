@@ -2,8 +2,6 @@ package io.renren.config;
 
 import java.text.MessageFormat;
 
-import org.omg.CORBA.Current;
-
 public class ApiConfig {
 	// ethscan
 	//

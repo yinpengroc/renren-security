@@ -1,29 +1,26 @@
 package io.renren.controller;
 
-import io.renren.annotation.Login;
-import io.renren.annotation.LoginUser;
-import io.renren.common.utils.R;
-import io.renren.entity.UserEntity;
-import io.renren.service.TransactionsService;
-import io.renren.service.UserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.annotations.ApiIgnore;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import io.renren.annotation.Login;
+import io.renren.annotation.LoginUser;
+import io.renren.common.utils.R;
+import io.renren.entity.UserEntity;
+import io.renren.service.TransactionsService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 测试interface
