@@ -47,7 +47,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Login annotation;
         if(handler instanceof HandlerMethod) {
-            annotation = ((HandlerMethod) handler).getMethodAnnotation(Login.class);
+			annotation = ((HandlerMethod) handler).getMethodAnnotation(Login.class);
         }else{
             return true;
         }
@@ -65,16 +65,16 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
         //token为空
         if(StringUtils.isBlank(token)){
-            throw new RRException("token不能为空");
+            throw new RRException("token can not empty",400);
         }
 
         //查询token信息
         TokenEntity tokenEntity = tokenService.queryByToken(token);
         if(tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()){
-            throw new RRException("token失效，请重新 Login");
+            throw new RRException("token Unauthorized，please reLogin",401);
         }
 
-        // config userId到request里，后续根据userId，获取 Users信息
+        // we can put userid into rquest or user entity
         request.setAttribute(USER_KEY, tokenEntity.getUserId());
 
         return true;

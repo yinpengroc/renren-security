@@ -12,6 +12,13 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 /**
  * 测试interface
@@ -31,6 +38,10 @@ public class ApiTestController {
     public R userInfo(@ApiIgnore @LoginUser UserEntity user){
         return R.ok().put("user", user);
     }
+    
+  
+    
+    
 
     @Login
     @GetMapping("userId")
@@ -39,10 +50,21 @@ public class ApiTestController {
         return R.ok().put("userId", userId);
     }
 
+	@RequestMapping(value = { "/version", "/versiontest" }, method = RequestMethod.GET)
+	@ResponseBody 
+    public R getVersion(HttpServletResponse rs) {
+    	rs.setStatus(HttpServletResponse.SC_FORBIDDEN);
+        return R.ok().put("msg", "version:1.1");
+	}
+    
+    
     @GetMapping("notToken")
     @ApiOperation("忽略Token验证测试")
-    public R notToken(){
-        return R.ok().put("msg", "无需token也能访问。。。");
+    
+    public R notToken(HttpServletResponse rs){
+    	rs.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+    	//rs.setStatus(sc);
+        return R.ok().put("msg", "withour token");
     }
 
 }
