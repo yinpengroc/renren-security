@@ -1,25 +1,19 @@
 --  Users表
 --pk 165d74333ecd32a6f43cf8b3323cdd0e2117f9cc88ef543362462356eb628066
 CREATE TABLE `tb_user` (
-  `user_id` bigint NOT NULL AUTO_INCREMENT,
-  `username` varchar(50)  COMMENT ' Users名',
-  `mobile` varchar(20)   COMMENT '手机号',
-  `password` varchar(64) COMMENT '密码',
-  `create_time` datetime COMMENT '创建 time ',
-   
-  
-
-
- `address` varchar(40) COMMENT 'address',
-  `trackAddress` json  COMMENT 'trackAddress',
-  `lables` json   COMMENT 'lables',
-  `transactions` json COMMENT 'transactions ',
-   `ip` varchar(24) COMMENT 'ip',
-   `last_time` int COMMENT 'last login time ',
-
-
-  PRIMARY KEY (`user_id`),
-  UNIQUE INDEX (`address`)
+  `user_id` bigint(20) NOT NULL,
+  `username` varchar(50) DEFAULT NULL COMMENT ' Users名',
+  `mobile` varchar(20) DEFAULT NULL COMMENT 'phone',
+  `mail` varchar(64) NOT NULL,
+  `password` varchar(64) DEFAULT NULL COMMENT 'password',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建 time ',
+  `address` varchar(40) DEFAULT NULL COMMENT 'address',
+  `trackAddress` json DEFAULT NULL COMMENT 'trackAddress',
+  `lables` json DEFAULT NULL COMMENT 'lables',
+  `tax` json DEFAULT NULL,
+  `transactions` json DEFAULT NULL COMMENT 'transactions ',
+  `ip` varchar(24) DEFAULT NULL COMMENT 'ip',
+  `last_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'last login time '
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT=' Users';
 
 --  UsersToken表
