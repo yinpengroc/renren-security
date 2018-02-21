@@ -1,6 +1,7 @@
 package io.renren.service.impl;
 
 import java.io.IOException;
+import java.security.interfaces.RSAKey;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -37,29 +38,61 @@ public class TransactionsServiceImpl implements TransactionsService {
 	@Override
 	public Map<String, Object> getCurrentBlockNumber() {
 		Map<String, Object> map = new HashMap<>(1);
-	      this.getCurrentBkSave();
+	  
 		map.put("blockNumber", ApiConfig.getInstance().getBlockNumber());
     
 		return map;
 
 	}
+	
+	
+	@Override
+	public Map<String, Object> getgasPrice() {
+		Map<String, Object> map = new HashMap<>(1);
+		map.put("gasPrice", ApiConfig.getInstance().getGasPrice());
+		return map;
+
+	}
+	
 
 	@Scheduled(fixedDelay = 12000)
-	public void getCurrentBkSave() {
+	private void getCurrentBkSave() {
 
 		String str = getResponseFromRemote(ApiConfig.getInstance().getEth_blockNumber());
+		ApiConfig.getInstance().setBlockNumber(this.getLongByHex(str));
+		
+	}
+	
+	@Scheduled(fixedDelay = 12000)
+	private void gasPriceSave() {
+
+		String str = getResponseFromRemote(ApiConfig.getInstance().getEth_gasPrice());
+	
+		ApiConfig.getInstance().setGasPrice((this.getLongByHex(str)));
+		
+	}
+	
+	private long getLongByHex(String str){
+
 		MutilEntity mutilEntity = null;
+		long rs=0;
 		if (StringUtils.isNotBlank(str)) {
 
 			mutilEntity = JSON.parseObject(str, MutilEntity.class);
 
 			String oString = StringUtil.getRidOfPro(mutilEntity.getResult(), "0x");
-
-			ApiConfig.getInstance().setBlockNumber(Integer.parseInt(oString, 16));
-
+		
+			//Integer.parseInt(oString, 16);
+			rs=Long.parseLong(oString, 16);
 		}
+		return rs;
+		
+		
 
 	}
+	
+	
+	//gasPrice
 
 	@Override
 	public Map<String, Object> getBalanceByAddress(String address) {

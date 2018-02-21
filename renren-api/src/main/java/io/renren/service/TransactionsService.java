@@ -14,6 +14,7 @@ public Map<String, Object> getTransactionsByAddress(String address,String bkStar
 public Map<String, Object> getTransactionsByAddress(String address);
 public Map<String, Object> getCurrentBlockNumber();
 public Map<String, Object> getBalanceByAddress(String address);
+Map<String, Object> getgasPrice();
 	 
  
 }
