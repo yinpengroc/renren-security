@@ -2,8 +2,6 @@ package io.renren.config;
 
 import java.text.MessageFormat;
 
-import org.omg.CORBA.Current;
-
 public class ApiConfig {
 	// ethscan
 	//
@@ -12,6 +10,15 @@ public class ApiConfig {
 	private  String key = "&apikey=YourApiKeyToken";
 
 	private  String balance = url + "module=account&action=balance&address={0}&tag=latest" + key;
+	public long getGasPrice() {
+		return gasPrice;
+	}
+
+	public void setGasPrice(long gasPrice) {
+		this.gasPrice = gasPrice;
+	}
+
+	private  long gasPrice;
 	
 	private static  ApiConfig instance;
 	
