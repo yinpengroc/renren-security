@@ -8,12 +8,12 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
-import io.renren.config.ApiYmlConfig;
+
 
 
 @SpringBootApplication
 @MapperScan(basePackages = {"io.renren.dao"})
-@EnableConfigurationProperties({ApiYmlConfig.class}) 
+
 public class ApiApplication extends SpringBootServletInitializer {
  
     
