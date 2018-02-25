@@ -9,7 +9,7 @@ import java.util.Map;
  * 代码生成器
  * 
  * @author peng
- * @email yinpenghawk@gmail.com
+ * @email yinpenghawk@gmail.comP
  * @date 2016年12月19日 下午3:32:04
  */
 @Mapper

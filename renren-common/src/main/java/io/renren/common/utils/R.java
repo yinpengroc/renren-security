@@ -18,7 +18,23 @@ package io.renren.common.utils;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+200: 'OK',
+201: 'Created or updated',
+202: 'Accepted',
+204: 'delete successful',
+400: 'bad requirment',
+401: 'Unauthorized ',
+403: 'Forbidden',
+404: 'Not Found',
+406: 'Not Acceptable',
+410: 'Permanent delete',
+422: 'Unprocessable Entity',
+500: 'Internal Server Error',
+502: 'Bad Gateway',
+503: 'Service Unavailable',
+504: 'Gateway Timeout',
+*/
 /**
  * 返回数据
  * 

@@ -6,22 +6,53 @@ public class ApiConfig {
 	// ethscan
 	//
 
-	private String url = "https://api.etherscan.io/api?";
-	private String key = "&apikey=YourApiKeyToken";
+	private  String url = "https://api.etherscan.io/api?";
+	private  String key = "&apikey=YourApiKeyToken";
 
-	private String balance = url + "module=account&action=balance&address={0}&tag=latest" + key;
+	private  String balance = url + "module=account&action=balance&address={0}&tag=latest" + key;
+	public long getGasPrice() {
+		return gasPrice;
+	}
 
-	public String getBalance(String address) {
+	public void setGasPrice(long gasPrice) {
+		this.gasPrice = gasPrice;
+	}
+
+	private  long gasPrice;
+	
+	private static  ApiConfig instance;
+	
+	public long getBlockNumber() {
+		return blockNumber;
+	}
+
+	public void setBlockNumber(long blockNumber) {
+		this.blockNumber = blockNumber;
+	}
+
+	private long blockNumber;
+	
+	private ApiConfig(){
+		
+	}
+	
+    public static ApiConfig getInstance() {
+		if(instance==null){
+			instance=new ApiConfig();
+		}
+		return instance;
+	} 
+	public  String  getBalance(String address) {
 
 		return MessageFormat.format(balance, address);
 	}
 
 	// Get a list of 'Normal' Transactions By Address
 	// http://api.etherscan.io/api?&apikey=YourApiKeyToken
-	private String normalTransactions = url
+	private  String normalTransactions = url
 			+ "module=account&action=txlist&address={0}&startblock={1}&endblock={2}&sort=asc" + key;;
 
-	public String getNormalTransactions(String address, long startblock, long endblock) {
+	public  String getNormalTransactions(String address, long startblock, long endblock) {
 		return MessageFormat.format(normalTransactions, address, startblock, endblock);
 	}
 
@@ -37,7 +68,7 @@ public class ApiConfig {
 		return tokenContractAddressBalance;
 	}
 
-	public String getEth_blockNumber() {
+	public  String getEth_blockNumber() {
 		return eth_blockNumber;
 	}
 
@@ -62,9 +93,9 @@ public class ApiConfig {
 	private String totalSupply;
 	// Get ERC20-Token Account Balance for TokenContractAddress
 	// https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress={contractaddress}&address={address}&tag=latest&apikey=YourApiKeyToken
-	private String tokenContractAddressBalance;
+	private  String tokenContractAddressBalance;
 	// https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=YourApiKeyToken
-	private String eth_blockNumber=url+"module=proxy&action=eth_blockNumber"+key;
+	private  String eth_blockNumber=url+"module=proxy&action=eth_blockNumber"+key;
 	
 	// eth_gasPrice
 	// https://api.etherscan.io/api?module=proxy&action=eth_gasPrice&apikey=YourApiKeyToken
