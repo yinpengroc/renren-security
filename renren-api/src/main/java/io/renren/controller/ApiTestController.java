@@ -31,7 +31,7 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @RestController
 @RequestMapping("/api")
-@Api(tags = "测试interface")
+@Api(tags = "blockeeper test")
 public class ApiTestController {
 
 	@Autowired
@@ -75,6 +75,21 @@ public class ApiTestController {
 		Map<String, Object> map = transactionsService.getCurrentBlockNumber();
 		return R.ok(map).put("msg", "this is success");
 	}
+	
+	
+
+	@CrossOrigin
+	@RequestMapping(value = { "/gasPrice" }, method = RequestMethod.GET)
+	@ResponseBody
+	public R getGasPrice(HttpServletResponse rs) {
+		rs.setStatus(HttpServletResponse.SC_OK);
+		Map<String, Object> map = transactionsService.getgasPrice();
+		return R.ok(map).put("msg", "this is success");
+	}
+	
+	
+	
+	
 
 	@GetMapping("notToken")
 	@ApiOperation("忽略Token验证测试")
