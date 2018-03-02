@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,7 +86,7 @@ public class ApiTestController {
 	@CrossOrigin
 	@RequestMapping(value = { "/tranactions/{hashcode}" }, method = RequestMethod.GET)
 	@ResponseBody
-	public R getTranactionsByHash(HttpServletResponse rs,@RequestParam(value = "hashcode") String hashcode) {
+	public R getTranactionsByHash(HttpServletResponse rs,@PathVariable("hashcode") String hashcode) {
 		rs.setStatus(HttpServletResponse.SC_OK);
 	
 		Map<String, Object> map = transactionsService.getTransactionsByHashcode(hashcode);

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
+import org.hibernate.validator.internal.util.privilegedactions.GetAnnotationParameter;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -28,13 +29,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 	public Map<String, Object> getTransactionsByAddress(String address, String bkStart, String bkEnd) {
 		// TODO Auto-generated method stub
 		String str = getResponseFromRemote(config.getNormalTransactions(address, bkStart, bkEnd));
-		MutilEntity mutilEntity = JSON.parseObject(str, MutilEntity.class);
-		if (mutilEntity == null) {
-			return null;
-		}
-		Map<String, Object> map = new HashMap<>();
-		map.put("result", mutilEntity.getResult());
-		return map;
+		return getMapFromSring(str);
 	}
 
 	public Map<String, Object> getTransactionsByAddress(String address, String bkStart) {
@@ -98,7 +93,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 	}
 
-	// gasPrice
+	
 
 	@Override
 	public Map<String, Object> getBalanceByAddress(String address, Map<String, Object> map) {
@@ -108,14 +103,12 @@ public class TransactionsServiceImpl implements TransactionsService {
 		}
 
 		// todo
-		String rs = null;
-		MutilEntity mutilEntity = JSON.parseObject(getResponseFromRemote(config.getBalance(address)),
-				MutilEntity.class);
-		if (mutilEntity != null) {
-			rs = mutilEntity.getResult();
+		String rs = getResponseFromRemote(config.getBalance(address));
+		MutilEntity mutilEntity = JSON.parseObject(rs, MutilEntity.class);
+		if (mutilEntity == null) {
+			return null;
 		}
-
-		map.put(address, rs);
+		map.put(address, mutilEntity.getResult());
 		return map;
 	}
 
@@ -182,10 +175,22 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 	}
 
+	private Map<String, Object> getMapFromSring(String str) {
+		Map<String, Object> map = new HashMap<>();
+		MutilEntity mutilEntity = JSON.parseObject(str, MutilEntity.class);
+		if (mutilEntity == null) {
+			return null;
+		}
+		map.put("result", mutilEntity.getResult());
+		return map;
+	}
+
 	@Override
 	public Map<String, Object> getTransactionsByHashcode(String Hashcode) {
 		// TODO Auto-generated method stub
-		return null;
+		String rString = getResponseFromRemote(config.getHashTransactions(Hashcode));
+		return getMapFromSring(rString);
+
 	}
 
 }

@@ -6,10 +6,11 @@ public class ApiConfig {
 	// ethscan
 	//
 
-	private  String url = "https://api.etherscan.io/api?";
-	private  String key = "&apikey=YourApiKeyToken";
+	private String url = "https://api.etherscan.io/api?";
+	private String key = "&apikey=YourApiKeyToken";
 
-	private  String balance = url + "module=account&action=balance&address={0}&tag=latest" + key;
+	private String balance = url + "module=account&action=balance&address={0}&tag=latest" + key;
+
 	public long getGasPrice() {
 		return gasPrice;
 	}
@@ -18,47 +19,47 @@ public class ApiConfig {
 		this.gasPrice = gasPrice;
 	}
 
-	private  long gasPrice;
-	
-	private static  ApiConfig instance;
-	
+	private long gasPrice;
+
+	private static ApiConfig instance;
+
 	public long getBlockNumber() {
 		return blockNumber;
 	}
-
 
 	public void setBlockNumber(long blockNumber) {
 		this.blockNumber = blockNumber;
 	}
 
 	private long blockNumber;
-	
-	private ApiConfig(){
-		
+
+	private ApiConfig() {
+
 	}
-	
-    public static ApiConfig getInstance() {
-		if(instance==null){
-			instance=new ApiConfig();
+
+	public static ApiConfig getInstance() {
+		if (instance == null) {
+			instance = new ApiConfig();
 		}
 		return instance;
-	} 
-	public  String  getBalance(String address) {
+	}
+
+	public String getBalance(String address) {
 
 		return MessageFormat.format(balance, address);
 	}
 
 	// Get a list of 'Normal' Transactions By Address
 	// http://api.etherscan.io/api?&apikey=YourApiKeyToken
-	private  String normalTransactions = url
+	private String normalTransactions = url
 			+ "module=account&action=txlist&address={0}&startblock={1}&endblock={2}&sort=asc" + key;;
 
-	public  String getNormalTransactions(String address, String startblock, String endblock) {
+	public String getNormalTransactions(String address, String startblock, String endblock) {
 		return MessageFormat.format(normalTransactions, address, startblock, endblock);
 	}
 
-	public String getHashTransactions() {
-		return hashTransactions;
+	public String getHashTransactions(String hash) {
+		return MessageFormat.format(hashTransactions, hash);
 	}
 
 	public String getTotalSupply() {
@@ -69,7 +70,7 @@ public class ApiConfig {
 		return tokenContractAddressBalance;
 	}
 
-	public  String getEth_blockNumber() {
+	public String getEth_blockNumber() {
 		return eth_blockNumber;
 	}
 
@@ -87,18 +88,18 @@ public class ApiConfig {
 	}
 
 	// Get "Internal Transactions" by Transaction Hash
-	// https://api.etherscan.io/api?module=account&action=txlistinternal&txhash={hash}&apikey=YourApiKeyToken
-	private String hashTransactions;
+	//https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash={0}&apikey=YourApiKeyToken
+	private String hashTransactions = url + "module=proxy&action=eth_getTransactionByHash&txhash={0}" + key;
 	// Get ERC20-Token TotalSupply by ContractAddress
 	// https://api.etherscan.io/api?module=stats&action=tokensupply&contractaddress={ContractAddress}&apikey=YourApiKeyToken
 	private String totalSupply;
 	// Get ERC20-Token Account Balance for TokenContractAddress
 	// https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress={contractaddress}&address={address}&tag=latest&apikey=YourApiKeyToken
-	private  String tokenContractAddressBalance;
+	private String tokenContractAddressBalance;
 	// https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=YourApiKeyToken
-	private  String eth_blockNumber=url+"module=proxy&action=eth_blockNumber"+key;
-	
+	private String eth_blockNumber = url + "module=proxy&action=eth_blockNumber" + key;
+
 	// eth_gasPrice
 	// https://api.etherscan.io/api?module=proxy&action=eth_gasPrice&apikey=YourApiKeyToken
-	private String eth_gasPrice=url+"module=proxy&action=eth_gasPrice"+key;
+	private String eth_gasPrice = url + "module=proxy&action=eth_gasPrice" + key;
 }
