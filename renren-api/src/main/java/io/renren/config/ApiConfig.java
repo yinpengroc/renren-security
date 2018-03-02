@@ -26,6 +26,7 @@ public class ApiConfig {
 		return blockNumber;
 	}
 
+
 	public void setBlockNumber(long blockNumber) {
 		this.blockNumber = blockNumber;
 	}
@@ -52,7 +53,7 @@ public class ApiConfig {
 	private  String normalTransactions = url
 			+ "module=account&action=txlist&address={0}&startblock={1}&endblock={2}&sort=asc" + key;;
 
-	public  String getNormalTransactions(String address, long startblock, long endblock) {
+	public  String getNormalTransactions(String address, String startblock, String endblock) {
 		return MessageFormat.format(normalTransactions, address, startblock, endblock);
 	}
 

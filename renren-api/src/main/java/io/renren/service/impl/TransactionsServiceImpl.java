@@ -22,24 +22,37 @@ import okhttp3.Response;
 
 @Service("transactionsService")
 public class TransactionsServiceImpl implements TransactionsService {
+	ApiConfig config = ApiConfig.getInstance();
 
 	@Override
 	public Map<String, Object> getTransactionsByAddress(String address, String bkStart, String bkEnd) {
 		// TODO Auto-generated method stub
-		return null;
+		String str = getResponseFromRemote(config.getNormalTransactions(address, bkStart, bkEnd));
+		MutilEntity mutilEntity = JSON.parseObject(str, MutilEntity.class);
+		if (mutilEntity == null) {
+			return null;
+		}
+		Map<String, Object> map = new HashMap<>();
+		map.put("result", mutilEntity.getResult());
+		return map;
+	}
+
+	public Map<String, Object> getTransactionsByAddress(String address, String bkStart) {
+		return this.getTransactionsByAddress(address, bkStart, String.valueOf(config.getBlockNumber()));
+
 	}
 
 	@Override
 	public Map<String, Object> getTransactionsByAddress(String address) {
-		// TODO Auto-generated method stub
-		return null;
+		long bk = config.getBlockNumber();
+		return this.getTransactionsByAddress(address, String.valueOf(0), String.valueOf(bk));
 	}
 
 	@Override
 	public Map<String, Object> getCurrentBlockNumber() {
 		Map<String, Object> map = new HashMap<>(1);
 
-		map.put("blockNumber", ApiConfig.getInstance().getBlockNumber());
+		map.put("blockNumber", config.getBlockNumber());
 
 		return map;
 
@@ -48,7 +61,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 	@Override
 	public Map<String, Object> getgasPrice() {
 		Map<String, Object> map = new HashMap<>(1);
-		map.put("gasPrice", ApiConfig.getInstance().getGasPrice());
+		map.put("gasPrice", config.getGasPrice());
 		return map;
 
 	}
@@ -56,17 +69,17 @@ public class TransactionsServiceImpl implements TransactionsService {
 	@Scheduled(fixedDelay = 12000)
 	private void getCurrentBkSave() {
 
-		String str = getResponseFromRemote(ApiConfig.getInstance().getEth_blockNumber());
-		ApiConfig.getInstance().setBlockNumber(this.getLongByHex(str));
+		String str = getResponseFromRemote(config.getEth_blockNumber());
+		config.setBlockNumber(this.getLongByHex(str));
 
 	}
 
 	@Scheduled(fixedDelay = 12000)
 	private void gasPriceSave() {
 
-		String str = getResponseFromRemote(ApiConfig.getInstance().getEth_gasPrice());
+		String str = getResponseFromRemote(config.getEth_gasPrice());
 
-		ApiConfig.getInstance().setGasPrice((this.getLongByHex(str)));
+		config.setGasPrice((this.getLongByHex(str)));
 
 	}
 
@@ -96,11 +109,12 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 		// todo
 		String rs = null;
-		MutilEntity	mutilEntity = JSON.parseObject(getResponseFromRemote(ApiConfig.getInstance().getBalance(address)), MutilEntity.class);
-		if(mutilEntity!=null){
-			rs=mutilEntity.getResult();
+		MutilEntity mutilEntity = JSON.parseObject(getResponseFromRemote(config.getBalance(address)),
+				MutilEntity.class);
+		if (mutilEntity != null) {
+			rs = mutilEntity.getResult();
 		}
-		
+
 		map.put(address, rs);
 		return map;
 	}
@@ -166,6 +180,12 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 		return rString;
 
+	}
+
+	@Override
+	public Map<String, Object> getTransactionsByHashcode(String Hashcode) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

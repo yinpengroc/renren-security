@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -64,10 +65,34 @@ public class ApiTestController {
 	@CrossOrigin
 	@RequestMapping(value = { "/balance/{address}" }, method = RequestMethod.GET)
 	@ResponseBody
-	public R getBalanceByAddress(HttpServletResponse rs) {
+	public R getBalanceByAddress(HttpServletResponse rs,@RequestParam(value = "address") String address) {
 		rs.setStatus(HttpServletResponse.SC_OK);
-		return R.ok().put("msg", "version:1.1");
+		Map<String, Object> map = transactionsService.getBalanceByAddress(address, null);
+		return R.ok(map).put("msg", "this is success");
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value = { "/tranactions" }, method = RequestMethod.GET)
+	@ResponseBody
+	public R getTranactionsByAddress(HttpServletResponse rs,@RequestParam(value = "address") String address) {
+		rs.setStatus(HttpServletResponse.SC_OK);
+	
+		Map<String, Object> map = transactionsService.getTransactionsByAddress(address);
+		return R.ok(map).put("msg", "this is success");
+	}
+
+	
+	@CrossOrigin
+	@RequestMapping(value = { "/tranactions/{hashcode}" }, method = RequestMethod.GET)
+	@ResponseBody
+	public R getTranactionsByHash(HttpServletResponse rs,@RequestParam(value = "hashcode") String hashcode) {
+		rs.setStatus(HttpServletResponse.SC_OK);
+	
+		Map<String, Object> map = transactionsService.getTransactionsByHashcode(hashcode);
+		return R.ok(map).put("msg", "this is success");
+	}
+
+	
 
 	@CrossOrigin
 	@RequestMapping(value = { "/blockNumber" }, method = RequestMethod.GET)
