@@ -1,5 +1,6 @@
 package io.renren.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -88,6 +90,14 @@ public class ApiTestController {
 	}
 	
 	
+
+	@CrossOrigin
+	@RequestMapping(value = { "/balance" }, method = RequestMethod.POST)
+	public R getBalanceList(@RequestBody List<String> address,HttpServletResponse rs) {
+		rs.setStatus(HttpServletResponse.SC_OK);
+		Map<String, Object> map = transactionsService.getBalanceByAddressList(address);
+		return R.ok(map).put("msg", "this is success");
+	}
 	
 	
 

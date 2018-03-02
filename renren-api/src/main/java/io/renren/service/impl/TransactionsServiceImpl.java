@@ -1,8 +1,8 @@
 package io.renren.service.impl;
 
 import java.io.IOException;
-import java.security.interfaces.RSAKey;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -38,14 +38,13 @@ public class TransactionsServiceImpl implements TransactionsService {
 	@Override
 	public Map<String, Object> getCurrentBlockNumber() {
 		Map<String, Object> map = new HashMap<>(1);
-	  
+
 		map.put("blockNumber", ApiConfig.getInstance().getBlockNumber());
-    
+
 		return map;
 
 	}
-	
-	
+
 	@Override
 	public Map<String, Object> getgasPrice() {
 		Map<String, Object> map = new HashMap<>(1);
@@ -53,53 +52,68 @@ public class TransactionsServiceImpl implements TransactionsService {
 		return map;
 
 	}
-	
 
 	@Scheduled(fixedDelay = 12000)
 	private void getCurrentBkSave() {
 
 		String str = getResponseFromRemote(ApiConfig.getInstance().getEth_blockNumber());
 		ApiConfig.getInstance().setBlockNumber(this.getLongByHex(str));
-		
+
 	}
-	
+
 	@Scheduled(fixedDelay = 12000)
 	private void gasPriceSave() {
 
 		String str = getResponseFromRemote(ApiConfig.getInstance().getEth_gasPrice());
-	
+
 		ApiConfig.getInstance().setGasPrice((this.getLongByHex(str)));
-		
+
 	}
-	
-	private long getLongByHex(String str){
+
+	private long getLongByHex(String str) {
 
 		MutilEntity mutilEntity = null;
-		long rs=0;
+		long rs = 0;
 		if (StringUtils.isNotBlank(str)) {
 
 			mutilEntity = JSON.parseObject(str, MutilEntity.class);
 
 			String oString = StringUtil.getRidOfPro(mutilEntity.getResult(), "0x");
-		
-			//Integer.parseInt(oString, 16);
-			rs=Long.parseLong(oString, 16);
+			rs = Long.parseLong(oString, 16);
 		}
 		return rs;
-		
-		
 
 	}
-	
-	
-	//gasPrice
+
+	// gasPrice
 
 	@Override
-	public Map<String, Object> getBalanceByAddress(String address) {
+	public Map<String, Object> getBalanceByAddress(String address, Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		Map<String, Object> map = new HashMap<>(1);
-		//todo
-		String rs = getResponseFromRemote(ApiConfig.getInstance().getBalance(address));
+		if (map == null) {
+			map = new HashMap<String, Object>(1);
+		}
+
+		// todo
+		String rs = null;
+		MutilEntity	mutilEntity = JSON.parseObject(getResponseFromRemote(ApiConfig.getInstance().getBalance(address)), MutilEntity.class);
+		if(mutilEntity!=null){
+			rs=mutilEntity.getResult();
+		}
+		
+		map.put(address, rs);
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> getBalanceByAddressList(List addresses) {
+		// TODO Auto-generated method stub
+
+		Map<String, Object> map = new HashMap();
+
+		for (Object add : addresses) {
+			map = this.getBalanceByAddress((String) add, map);
+		}
 
 		return map;
 	}
