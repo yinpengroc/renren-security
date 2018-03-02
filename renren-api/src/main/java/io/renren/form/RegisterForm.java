@@ -16,9 +16,11 @@
 
 package io.renren.form;
 
+import javax.validation.constraints.NotBlank;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.NotBlank;
+
 
 /**
  *  Register Form

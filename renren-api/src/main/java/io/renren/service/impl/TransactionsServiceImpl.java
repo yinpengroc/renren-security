@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
-import org.hibernate.validator.internal.util.privilegedactions.GetAnnotationParameter;
+//import org.hibernate.validator.internal.util.privilegedactions.GetAnnotationParameter;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -113,10 +113,10 @@ public class TransactionsServiceImpl implements TransactionsService {
 	}
 
 	@Override
-	public Map<String, Object> getBalanceByAddressList(List addresses) {
+	public Map<String, Object> getBalanceByAddressList(List<String> addresses) {
 		// TODO Auto-generated method stub
 
-		Map<String, Object> map = new HashMap();
+		Map<String, Object> map = new HashMap<String, Object>();
 
 		for (Object add : addresses) {
 			map = this.getBalanceByAddress((String) add, map);
