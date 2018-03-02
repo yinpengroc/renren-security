@@ -19,17 +19,17 @@ import java.util.Map;
 @Configuration
 public class DynamicDataSourceConfig {
 
-    @Bean
-    @ConfigurationProperties("spring.datasource.druid.first")
-    public DataSource firstDataSource(){
-    	return DruidDataSourceBuilder.create().build();
-    }
+//    @Bean
+//    @ConfigurationProperties("spring.datasource.druid.first")
+//    public DataSource firstDataSource(){
+//    	return DruidDataSourceBuilder.create().build();
+//    }
 
-    @Bean
-    @ConfigurationProperties("spring.datasource.druid.second")
-    public DataSource secondDataSource(){
-        return DruidDataSourceBuilder.create().build();
-    }
+//    @Bean
+//    @ConfigurationProperties("spring.datasource.druid.second")
+//    public DataSource secondDataSource(){
+//        return DruidDataSourceBuilder.create().build();
+//    }
 
     @Bean
     @Primary
