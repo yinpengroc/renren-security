@@ -22,6 +22,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -35,7 +36,55 @@ import java.util.Date;
 @TableName("tb_user")
 public class UserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	public List<LabelEntity> getLabels() {
+		return labels;
+	}
+	public void setLabels(List<LabelEntity> labels) {
+		this.labels = labels;
+	}
+	public List<TaxEntity> getTax() {
+		return tax;
+	}
+	public void setTax(List<TaxEntity> tax) {
+		this.tax = tax;
+	}
+	public List<TsEntity> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<TsEntity> transactions) {
+		this.transactions = transactions;
+	}
+	public String getTrackAddress() {
+		return trackAddress;
+	}
+	public void setTrackAddress(String trackAddress) {
+		this.trackAddress = trackAddress;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getDevice() {
+		return device;
+	}
+	public void setDevice(int device) {
+		this.device = device;
+	}
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	private List<LabelEntity> labels;
+	private List<TaxEntity> tax;
+	private List<TsEntity>transactions;
+	private String trackAddress;
+	private String address;
+	private int device;
+	private String ip;
 	/**
 	 *  UsersID
 	 */

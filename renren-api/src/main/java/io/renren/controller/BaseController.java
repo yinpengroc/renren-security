@@ -1,12 +1,10 @@
 package io.renren.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.renren.common.utils.RedisUtils;
 import io.swagger.annotations.Api;
 
 /**
@@ -21,8 +19,6 @@ import io.swagger.annotations.Api;
 
 @Api(tags = "blockeeper superController")
 public class BaseController {
-	@Autowired
-	private RedisUtils redisUtils;
 
 	public Object getUserByToken(@RequestHeader HttpHeaders headers) {
 

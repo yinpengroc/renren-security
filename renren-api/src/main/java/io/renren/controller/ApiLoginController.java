@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.renren.common.utils.R;
 import io.renren.common.utils.RedisUtils;
-import io.renren.common.validator.ValidatorUtils;
 import io.renren.entity.UserEntity;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
