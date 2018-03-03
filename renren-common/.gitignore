@@ -4,3 +4,4 @@ application-dev.yml
 .classpath
 .project
 .settings/
+.sts4-cache/
