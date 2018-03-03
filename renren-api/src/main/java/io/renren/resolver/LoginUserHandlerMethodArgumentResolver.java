@@ -49,13 +49,13 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer container,
                                   NativeWebRequest request, WebDataBinderFactory factory) throws Exception {
         //获取 UsersID
-        Object object = request.getAttribute(AuthorizationInterceptor.USER_KEY, RequestAttributes.SCOPE_REQUEST);
-        if(object == null){
+    	UserEntity user =(UserEntity) request.getAttribute(AuthorizationInterceptor.USER_KEY, RequestAttributes.SCOPE_REQUEST);
+        if(user == null){
             return null;
         }
 
         //获取 Users信息
-        UserEntity user = userService.selectById((Long)object);
+      //  UserEntity user = userService.selectById((Long)object);
 
         return user;
     }

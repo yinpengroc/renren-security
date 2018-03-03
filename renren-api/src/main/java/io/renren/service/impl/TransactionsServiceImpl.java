@@ -154,7 +154,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 		} catch ( StreamResetException e) {
 			e.printStackTrace();
-		    this.getResponseFromRemote(url);
+		   // this.getResponseFromRemote(url);
 			
 		}catch (IOException e) {
 			// TODO: handle exception
