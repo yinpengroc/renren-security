@@ -12,6 +12,7 @@ import java.util.Map;
 
 /**
  * 配置多数据源
+ * 
  * @author peng
  * @email yinpenghawk@gmail.com
  * @date 2017/8/19 0:41
@@ -19,24 +20,24 @@ import java.util.Map;
 @Configuration
 public class DynamicDataSourceConfig {
 
-//    @Bean
-//    @ConfigurationProperties("spring.datasource.druid.first")
-//    public DataSource firstDataSource(){
-//    	return DruidDataSourceBuilder.create().build();
-//    }
+	@Bean
+	@ConfigurationProperties("spring.datasource.druid.first")
+	public DataSource firstDataSource() {
+		return DruidDataSourceBuilder.create().build();
+	}
 
-//    @Bean
-//    @ConfigurationProperties("spring.datasource.druid.second")
-//    public DataSource secondDataSource(){
-//        return DruidDataSourceBuilder.create().build();
-//    }
+	@Bean
+	@ConfigurationProperties("spring.datasource.druid.second")
+	public DataSource secondDataSource() {
+		return DruidDataSourceBuilder.create().build();
+	}
 
-    @Bean
-    @Primary
-    public DynamicDataSource dataSource(DataSource firstDataSource, DataSource secondDataSource) {
-        Map<String, DataSource> targetDataSources = new HashMap<>();
-        targetDataSources.put(DataSourceNames.FIRST, firstDataSource);
-        targetDataSources.put(DataSourceNames.SECOND, secondDataSource);
-        return new DynamicDataSource(firstDataSource, targetDataSources);
-    }
+	@Bean
+	@Primary
+	public DynamicDataSource dataSource(DataSource firstDataSource, DataSource secondDataSource) {
+		Map<String, DataSource> targetDataSources = new HashMap<>();
+		targetDataSources.put(DataSourceNames.FIRST, firstDataSource);
+		targetDataSources.put(DataSourceNames.SECOND, secondDataSource);
+		return new DynamicDataSource(firstDataSource, targetDataSources);
+	}
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.renren.annotation.Login;
 import io.renren.common.utils.R;
+import io.renren.common.utils.RedisUtils;
 import io.renren.common.validator.ValidatorUtils;
 
 import io.renren.form.LoginForm;
@@ -36,6 +37,8 @@ public class ApiLoginController {
     private UserService userService;
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private RedisUtils redisUtils;
  
 
 
@@ -43,10 +46,20 @@ public class ApiLoginController {
     @ApiOperation(" Login")
     public R login(@RequestBody LoginForm form){
         // Formvalidate
+ 
+    	redisUtils.set("1111", "teasdfdsafdsf");
+        System.out.println("dsfdsfdsfsdf");
+        
+        System.out.println("dsfdsfd1sfsdf");
+        System.out.println(redisUtils.get("1111"));
+        System.out.println("dsfdsfd2sfsdf");
+        
         ValidatorUtils.validateEntity(form);
-       
         // Users Login
+        
         Map<String, Object> map = userService.login(form);
+        
+        
 
         return R.ok(map);
     }
