@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
-import org.hibernate.validator.internal.util.privilegedactions.GetAnnotationParameter;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +19,7 @@ import io.renren.service.TransactionsService;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.internal.http2.StreamResetException;
 
 @Service("transactionsService")
 public class TransactionsServiceImpl implements TransactionsService {
@@ -138,7 +138,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 			if (response != null && response.isSuccessful()) {
 				// throw new IOException("服务器端错误: " + response);
-
+                
 				rString = response.body().string();
 			} else {
 				return null;
@@ -152,12 +152,14 @@ public class TransactionsServiceImpl implements TransactionsService {
 			// // System.out.println(Info.getErrorTimes() + Info.getN());
 			// }
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			// Info.setException();
-			// System.out.println("exception
-			// :"+Thread.currentThread().getName()+response.code());
+		} catch ( StreamResetException e) {
 			e.printStackTrace();
+		   // this.getResponseFromRemote(url);
+			
+		}catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+	
 		}
 
 		finally {

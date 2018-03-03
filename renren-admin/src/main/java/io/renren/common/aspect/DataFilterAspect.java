@@ -65,7 +65,7 @@ public class DataFilterAspect {
 
             //如果不是超级Admin，则进行数据过滤
             if(user.getUserId() != Constant.SUPER_ADMIN){
-                Map map = (Map)params;
+                Map<Object, Object> map = (Map<Object, Object>)params;
                 map.put(Constant.SQL_FILTER, getSQLFilter(user, point));
             }
 

@@ -1,6 +1,7 @@
 package io.renren.controller;
 
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.renren.annotation.Login;
 import io.renren.common.utils.R;
+import io.renren.common.utils.RedisUtils;
 import io.renren.common.validator.ValidatorUtils;
-
+import io.renren.entity.UserEntity;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
 import io.renren.service.UserService;
@@ -31,11 +32,13 @@ import springfox.documentation.annotations.ApiIgnore;
 @RestController
 @RequestMapping("/api")
 @Api(tags=" Logininterface")
-public class ApiLoginController {
+public class ApiLoginController  {
     @Autowired
     private UserService userService;
     @Autowired
     private TokenService tokenService;
+    @Autowired
+   	private RedisUtils redisUtils;
  
 
 
@@ -43,20 +46,30 @@ public class ApiLoginController {
     @ApiOperation(" Login")
     public R login(@RequestBody LoginForm form){
         // Formvalidate
-        ValidatorUtils.validateEntity(form);
-       
+       // ValidatorUtils.validateEntity(form);
         // Users Login
-        Map<String, Object> map = userService.login(form);
+        UserEntity userEntity= new UserEntity();
+        userEntity.setUsername("test1234");
+        redisUtils.set("12345", userEntity);
+        
+        
+       // Map<String, Object> map = userService.login(form);
+        Map<String, Object> map =new HashMap();
+        map.put("key", "12345");
+        
+        
 
         return R.ok(map);
     }
 
-    @Login
+  
+   
     @PostMapping("logout")
     @ApiOperation("退出")
     public R logout(@ApiIgnore @RequestAttribute("userId") long userId){
         tokenService.expireToken(userId);
         return R.ok();
     }
+
 
 }

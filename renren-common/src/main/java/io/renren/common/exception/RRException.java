@@ -27,7 +27,7 @@ public class RRException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	
     private String msg;
-    private int code = 500;
+    private int code = 400;
     
     public RRException(String msg) {
 		super(msg);

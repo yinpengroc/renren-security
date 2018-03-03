@@ -3,14 +3,17 @@ package io.renren.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,24 +36,27 @@ import springfox.documentation.annotations.ApiIgnore;
  * @email yinpenghawk@gmail.com
  * @date 2017-03-23 15:47
  */
+
 @RestController
 @RequestMapping("/api")
 @Api(tags = "blockeeper test")
-public class ApiTestController {
+
+public class ApiTestController  {
 
 	@Autowired
 	private TransactionsService transactionsService;
 
-	@Login
+
 	@GetMapping("userInfo")
 	@ApiOperation(value = "获取 Users信息", response = UserEntity.class)
 	public R userInfo(@ApiIgnore @LoginUser UserEntity user) {
 		return R.ok().put("user", user);
 	}
 
-	@Login
+	
 	@GetMapping("userId")
 	@ApiOperation("获取 UsersID")
+	@Login
 	public R userInfo(@ApiIgnore @RequestAttribute("userId") Integer userId) {
 		return R.ok().put("userId", userId);
 	}
@@ -58,7 +64,8 @@ public class ApiTestController {
 	@CrossOrigin
 	@RequestMapping(value = { "/version" }, method = RequestMethod.GET)
 	@ResponseBody
-	public R getVersion(HttpServletResponse rs) {
+	public R getVersion(HttpServletResponse rs,HttpServletRequest request) {
+		System.out.println("1111 "+request.getAttribute("userInfo").toString());
 		rs.setStatus(HttpServletResponse.SC_OK);
 		return R.ok().put("msg", "version:1.1");
 	}
@@ -135,5 +142,7 @@ public class ApiTestController {
 		// rs.setStatus(sc);
 		return R.ok().put("msg", "withour token");
 	}
+
+
 
 }
