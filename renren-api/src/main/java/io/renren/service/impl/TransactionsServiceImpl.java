@@ -1,19 +1,22 @@
 package io.renren.service.impl;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import io.renren.common.utils.RedisUtils;
 import io.renren.common.utils.StringUtil;
 import io.renren.config.ApiConfig;
 import io.renren.entity.MutilEntity;
@@ -26,8 +29,9 @@ import okhttp3.internal.http2.StreamResetException;
 @Service("transactionsService")
 public class TransactionsServiceImpl implements TransactionsService {
 	ApiConfig config = ApiConfig.getInstance();
-	 private static final Logger log = LoggerFactory.getLogger(TransactionsServiceImpl.class);
-
+	@Autowired
+	private RedisUtils redisUtils;
+	private static final Logger log = LoggerFactory.getLogger(TransactionsServiceImpl.class);
 
 	@Override
 	public Map<String, Object> getTransactionsByAddress(String address, String bkStart, String bkEnd) {
@@ -65,7 +69,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 	}
 
-	@Scheduled(fixedDelay = 12000)
+	@Scheduled(fixedDelay = 14000)
 	private void getCurrentBkSave() {
 
 		String str = getResponseFromRemote(config.getEth_blockNumber());
@@ -73,7 +77,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 	}
 
-	@Scheduled(fixedDelay = 12000)
+	@Scheduled(fixedDelay = 14000)
 	private void gasPriceSave() {
 
 		String str = getResponseFromRemote(config.getEth_gasPrice());
@@ -97,8 +101,6 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 	}
 
-	
-
 	@Override
 	public Map<String, Object> getBalanceByAddress(String address, Map<String, Object> map) {
 		// TODO Auto-generated method stub
@@ -106,13 +108,21 @@ public class TransactionsServiceImpl implements TransactionsService {
 			map = new HashMap<String, Object>(1);
 		}
 
+		String cache = redisUtils.get(address + "_balance");
 		// todo
-		String rs = getResponseFromRemote(config.getBalance(address));
-		MutilEntity mutilEntity = JSON.parseObject(rs, MutilEntity.class);
-		if (mutilEntity == null) {
-			return null;
+		if (cache == null) {
+			String rs = getResponseFromRemote(config.getBalance(address));
+			MutilEntity mutilEntity = JSON.parseObject(rs, MutilEntity.class);
+			if (mutilEntity == null) {
+				return null;
+			}
+			cache = mutilEntity.getResult();
+			redisUtils.set(address + "_balance", cache, 3600);
+		
 		}
-		map.put(address, mutilEntity.getResult());
+		
+		
+		map.put(address, cache);
 		return map;
 	}
 
@@ -136,13 +146,14 @@ public class TransactionsServiceImpl implements TransactionsService {
 		Request request = new Request.Builder().url(url).get().build();
 		String rString = null;
 		Response response = null;
+
 		try {
 
 			response = client.newCall(request).execute();
 
 			if (response != null && response.isSuccessful()) {
 				// throw new IOException("服务器端错误: " + response);
-                
+
 				rString = response.body().string();
 			} else {
 				return null;
@@ -156,16 +167,18 @@ public class TransactionsServiceImpl implements TransactionsService {
 			// // System.out.println(Info.getErrorTimes() + Info.getN());
 			// }
 
-		} catch ( StreamResetException e) {
-			//e.printStackTrace();
-			
-			log.warn("this is call error"+url);
-		   // this.getResponseFromRemote(url);
-			
-		}catch (IOException e) {
+		} catch (SocketTimeoutException e) {
+			log.warn("this time out " + url);
+		} catch (StreamResetException e) {
+			// e.printStackTrace();
+
+			log.warn("this is call error" + url);
+			// this.getResponseFromRemote(url);
+
+		} catch (IOException e) {
 			// TODO: handle exception
 			e.printStackTrace();
-	
+
 		}
 
 		finally {
