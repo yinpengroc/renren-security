@@ -68,6 +68,8 @@ public class RedisUtils {
 			// redisTemplate.expire(key, expire, TimeUnit.SECONDS);
 			valueOperations.set(key, json, expire, TimeUnit.SECONDS);
 
+		}else {
+			valueOperations.set(key, json);
 		}
 	}
 
