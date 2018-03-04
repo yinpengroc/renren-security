@@ -7,11 +7,13 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
+
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import io.renren.common.utils.StringUtil;
 import io.renren.config.ApiConfig;
 import io.renren.entity.MutilEntity;
@@ -24,6 +26,8 @@ import okhttp3.internal.http2.StreamResetException;
 @Service("transactionsService")
 public class TransactionsServiceImpl implements TransactionsService {
 	ApiConfig config = ApiConfig.getInstance();
+	 private static final Logger log = LoggerFactory.getLogger(TransactionsServiceImpl.class);
+
 
 	@Override
 	public Map<String, Object> getTransactionsByAddress(String address, String bkStart, String bkEnd) {
@@ -153,7 +157,9 @@ public class TransactionsServiceImpl implements TransactionsService {
 			// }
 
 		} catch ( StreamResetException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			
+			log.warn("this is call error"+url);
 		   // this.getResponseFromRemote(url);
 			
 		}catch (IOException e) {

@@ -70,4 +70,4 @@ mybatis-plus:
     call-setters-on-nulls: true
 #logging
 logging:
-  level.root: info
+  level.root: WARN

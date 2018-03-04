@@ -2,13 +2,13 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml" />
     <logger name="org.springframework.web" level="WARN"/>
-    <logger name="org.springboot.sample" level="TRACE" />
+    <logger name="org.springboot.sample" level="WARN" />
 
     <!-- 开发、测试环境 -->
     <springProfile name="dev,test">
         <logger name="org.springframework.web" level="WARN"/>
         <logger name="org.springboot.sample" level="WARN" />
-        <logger name="io.renren" level="DEBUG" />
+        <logger name="io.renren" level="WARN" />
     </springProfile>
 
     <!-- 生产环境 -->
