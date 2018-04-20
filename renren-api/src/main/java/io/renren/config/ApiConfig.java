@@ -6,10 +6,10 @@ public class ApiConfig {
 	// ethscan
 	//
 
-	private String url = "https://api.etherscan.io/api?";
-	private String key = "&apikey=YourApiKeyToken";
+	private final String url = "https://api.etherscan.io/api?";
+	private final String key = "&apikey=YourApiKeyToken";
 
-	private String balance = url + "module=account&action=balance&address={0}&tag=latest" + key;
+	private final String balance = url + "module=account&action=balance&address={0}&tag=latest" + key;
 
 	public long getGasPrice() {
 		return gasPrice;
@@ -89,10 +89,10 @@ public class ApiConfig {
 
 	// Get "Internal Transactions" by Transaction Hash
 	//https://api.etherscan.io/api?module=proxy&action=eth_getTransactionByHash&txhash={0}&apikey=YourApiKeyToken
-	private String hashTransactions = url + "module=proxy&action=eth_getTransactionByHash&txhash={0}" + key;
+	private  String hashTransactions = url + "module=proxy&action=eth_getTransactionByHash&txhash={0}" + key;
 	// Get ERC20-Token TotalSupply by ContractAddress
 	// https://api.etherscan.io/api?module=stats&action=tokensupply&contractaddress={ContractAddress}&apikey=YourApiKeyToken
-	private String totalSupply;
+	private  String totalSupply;
 	// Get ERC20-Token Account Balance for TokenContractAddress
 	// https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress={contractaddress}&address={address}&tag=latest&apikey=YourApiKeyToken
 	private String tokenContractAddressBalance;

@@ -28,7 +28,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import io.renren.annotation.Login;
 import io.renren.common.exception.RRException;
 import io.renren.common.utils.RedisUtils;
 import io.renren.entity.UserEntity;
@@ -59,6 +58,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 //        // 获取用户token
         Method method = handlerMethod.getMethod();
         System.out.println("用户:"+ip+",访问目标:"+method.getName());   
+       
         //从header中获取token
         String token = request.getHeader("Authorization");
         //如果header中不存在token，则从参数中获取token
