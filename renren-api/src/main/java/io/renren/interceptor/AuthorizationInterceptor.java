@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -46,7 +48,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     public static final String USER_KEY = "userInfo";
     @Autowired
 	private RedisUtils redisUtils;
-
+	private static final Logger log = LoggerFactory.getLogger(AuthorizationInterceptor.class);
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
@@ -57,7 +59,8 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
 //        // 获取用户token
         Method method = handlerMethod.getMethod();
-        System.out.println("用户:"+ip+",访问目标:"+method.getName());   
+       // System.out.println();   
+        log.info("用户:"+ip+",访问目标:"+method.getName());
        
         //从header中获取token
         String token = request.getHeader("Authorization");
@@ -101,7 +104,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         long endTime = System.currentTimeMillis();
  
         long executeTime = endTime - startTime;
- 
+         System.out.println("this invoked the post");
         // log it
         if (executeTime > 1000) {
             System.out.println("[" + method.getDeclaringClass().getName() + "." + method.getName() + "] 执行耗时 : "

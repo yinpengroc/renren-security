@@ -31,7 +31,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @RestController
 @RequestMapping("/api")
 @Api(tags=" Logininterface")
-public class ApiLoginController  {
+public class ApiLoginController implements BaseController {
     @Autowired
     private UserService userService;
     @Autowired
