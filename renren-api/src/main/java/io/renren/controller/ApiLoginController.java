@@ -16,7 +16,6 @@ import io.renren.common.utils.RedisUtils;
 import io.renren.entity.UserEntity;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
-import io.renren.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
@@ -32,8 +31,8 @@ import springfox.documentation.annotations.ApiIgnore;
 @RequestMapping("/api")
 @Api(tags=" Logininterface")
 public class ApiLoginController implements BaseController {
-    @Autowired
-    private UserService userService;
+//    @Autowired
+//    private UserService userService;
     @Autowired
     private TokenService tokenService;
     @Autowired

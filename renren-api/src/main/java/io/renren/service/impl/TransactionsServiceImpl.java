@@ -127,13 +127,13 @@ public class TransactionsServiceImpl implements TransactionsService {
 	}
 
 	@Override
-	public Map<String, Object> getBalanceByAddressList(List addresses) {
+	public Map<String, Object> getBalanceByAddressList(List<String> addresses) {
 		// TODO Auto-generated method stub
 
-		Map<String, Object> map = new HashMap();
+		Map<String, Object> map = new HashMap<String, Object>();
 
-		for (Object add : addresses) {
-			map = this.getBalanceByAddress((String) add, map);
+		for (String add : addresses) {
+			map = this.getBalanceByAddress(add, map);
 		}
 
 		return map;
