@@ -26,7 +26,7 @@ import io.renren.entity.TokenEntity;
  * @email yinpenghawk@gmail.com
  * @date 2017-03-23 15:22:07
  */
-public interface TokenService extends IService<TokenEntity> {
+public interface TokenService extends IService<TokenEntity>,BaseService {
 
 	TokenEntity queryByToken(String token);
 

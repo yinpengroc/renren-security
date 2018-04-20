@@ -10,7 +10,7 @@ import java.util.Map;
  * @author PENG
  *
  */
-public interface TransactionsService {
+public interface TransactionsService extends BaseService{
 public Map<String, Object> getTransactionsByAddress(String address,String bkStart,String bkEnd);
 public Map<String, Object> getTransactionsByAddress(String address);
 
