@@ -356,6 +356,34 @@ CREATE TABLE QRTZ_LOCKS (
   PRIMARY KEY (SCHED_NAME,LOCK_NAME))
   ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `sys_flow_info` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) COMMENT '姓名',
+  `desc` varchar(512) COMMENT '描述',
+  `user_id` bigint COMMENT '流程建立人',
+  `create_date` datetime COMMENT '创建 time ',
+  PRIMARY KEY (`id`)
+) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8 COMMENT=' flow info ';
+
+
+
+CREATE TABLE `oa_message` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(256) COMMENT '姓名',
+  `message` Text COMMENT '消息内容',
+  `user_id` bigint COMMENT '消息建立人',
+  `level` tinyInt COMMENT '消息级别',
+  `type` tinyInt COMMENT '消息种类',
+  `recipient` bigint COMMENT '消息接受者(department,role,user)',
+  `create_date` datetime COMMENT '创建 time ',
+  PRIMARY KEY (`id`)
+) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8 COMMENT='oa message';
+
+
+
+
+
 CREATE INDEX IDX_QRTZ_J_REQ_RECOVERY ON QRTZ_JOB_DETAILS(SCHED_NAME,REQUESTS_RECOVERY);
 CREATE INDEX IDX_QRTZ_J_GRP ON QRTZ_JOB_DETAILS(SCHED_NAME,JOB_GROUP);
 

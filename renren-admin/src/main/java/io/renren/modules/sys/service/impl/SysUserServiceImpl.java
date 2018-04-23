@@ -16,7 +16,6 @@
 
 package io.renren.modules.sys.service.impl;
 
-
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -41,7 +40,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * 系统 Users
  * 
@@ -64,18 +62,19 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
 	@Override
 	@DataFilter(subDept = true, user = false)
 	public PageUtils queryPage(Map<String, Object> params) {
-		String username = (String)params.get("username");
+		String username = (String) params.get("username");
 
-		Page<SysUserEntity> page = this.selectPage(
-			new Query<SysUserEntity>(params).getPage(),
-			new EntityWrapper<SysUserEntity>()
-				.like(StringUtils.isNotBlank(username),"username", username)
-				.addFilterIfNeed(params.get(Constant.SQL_FILTER) != null, (String)params.get(Constant.SQL_FILTER))
-		);
+		Page<SysUserEntity> page = this.selectPage(new Query<SysUserEntity>(params).getPage(),
+				new EntityWrapper<SysUserEntity>().like(StringUtils.isNotBlank(username), "username", username)
+						.addFilterIfNeed(params.get(Constant.SQL_FILTER) != null,
+								(String) params.get(Constant.SQL_FILTER)));
 
-		for(SysUserEntity sysUserEntity : page.getRecords()){
+		for (SysUserEntity sysUserEntity : page.getRecords()) {
 			SysDeptEntity sysDeptEntity = sysDeptService.selectById(sysUserEntity.getDeptId());
-			sysUserEntity.setDeptName(sysDeptEntity.getName());
+			if (sysDeptEntity != null) {
+				sysUserEntity.setDeptName(sysDeptEntity.getName());
+			}
+
 		}
 
 		return new PageUtils(page);
@@ -85,37 +84,36 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
 	@Transactional(rollbackFor = Exception.class)
 	public void save(SysUserEntity user) {
 		user.setCreateTime(new Date());
-		//sha256加密
+		// sha256加密
 		String salt = RandomStringUtils.randomAlphanumeric(20);
 		user.setSalt(salt);
 		user.setPassword(ShiroUtils.sha256(user.getPassword(), user.getSalt()));
 		this.insert(user);
-		
-		//保存 Users与角色关系
+
+		// 保存 Users与角色关系
 		sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
 	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public void update(SysUserEntity user) {
-		if(StringUtils.isBlank(user.getPassword())){
+		if (StringUtils.isBlank(user.getPassword())) {
 			user.setPassword(null);
-		}else{
+		} else {
 			user.setPassword(ShiroUtils.sha256(user.getPassword(), user.getSalt()));
 		}
 		this.updateById(user);
-		
-		//保存 Users与角色关系
+
+		// 保存 Users与角色关系
 		sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
 	}
 
-
 	@Override
 	public boolean updatePassword(Long userId, String password, String newPassword) {
-        SysUserEntity userEntity = new SysUserEntity();
-        userEntity.setPassword(newPassword);
-        return this.update(userEntity,
-                new EntityWrapper<SysUserEntity>().eq("user_id", userId).eq("password", password));
-    }
+		SysUserEntity userEntity = new SysUserEntity();
+		userEntity.setPassword(newPassword);
+		return this.update(userEntity,
+				new EntityWrapper<SysUserEntity>().eq("user_id", userId).eq("password", password));
+	}
 
 }

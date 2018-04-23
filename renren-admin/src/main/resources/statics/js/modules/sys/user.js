@@ -1,19 +1,20 @@
 $(function () {
+
     $("#jqGrid").jqGrid({
         url: baseURL + 'sys/user/list',
         datatype: "json",
         colModel: [			
 			{ label: ' UsersID', name: 'userId', index: "user_id", width: 45, key: true },
-			{ label: ' Users名', name: 'username', width: 75 },
-            { label: '所属部门', name: 'deptName', sortable: false, width: 75 },
-			{ label: '邮箱', name: 'email', width: 90 },
-			{ label: '手机号', name: 'mobile', width: 100 },
-			{ label: '状态', name: 'status', width: 60, formatter: function(value, options, row){
+			{ label: ' Users name', name: 'username', width: 75 },
+            { label: 'department', name: 'deptName', sortable: false, width: 75 },
+			{ label: 'mail', name: 'email', width: 90 },
+			{ label: 'phone', name: 'mobile', width: 100 },
+			{ label: 'status', name: 'status', width: 60, formatter: function(value, options, row){
 				return value === 0 ? 
 					'<span class="label label-danger">禁用</span>' : 
 					'<span class="label label-success">正常</span>';
 			}},
-			{ label: '创建 time ', name: 'createTime', index: "create_time", width: 85}
+			{ label: 'create time ', name: 'createTime', index: "create_time", width: 85}
         ],
 		viewrecords: true,
         height: 385,
@@ -69,6 +70,7 @@ var vm = new Vue({
             status:1,
             deptId:null,
             deptName:null,
+            password:null,
             roleIdList:[]
         }
     },
@@ -77,11 +79,12 @@ var vm = new Vue({
             vm.reload();
         },
         add: function(){
+   
             vm.showList = false;
             vm.title = "新增";
             vm.roleList = {};
-            vm.user = {deptName:null, deptId:null, status:1, roleIdList:[]};
-
+            vm.user = {deptName:null, deptId:null, status:1, roleIdList:[],password:null};
+ 
             //获取角色信息
             this.getRoleList();
 
@@ -137,7 +140,8 @@ var vm = new Vue({
             });
         },
         saveOrUpdate: function () {
-            var url = vm.user.userId == null ? "sys/user/save" : "sys/user/update";
+         console.log('vm.user===='+JSON.stringify(vm.user))
+            let url = vm.user.userId == null ? "sys/user/save" : "sys/user/update";
             $.ajax({
                 type: "POST",
                 url: baseURL + url,
@@ -150,6 +154,7 @@ var vm = new Vue({
                         });
                     }else{
                         alert(r.msg);
+                       
                     }
                 }
             });

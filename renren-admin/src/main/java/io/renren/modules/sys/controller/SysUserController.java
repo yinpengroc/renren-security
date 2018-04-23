@@ -28,11 +28,13 @@ import io.renren.modules.sys.entity.SysUserEntity;
 import io.renren.modules.sys.service.SysUserRoleService;
 import io.renren.modules.sys.service.SysUserService;
 import io.renren.modules.sys.shiro.ShiroUtils;
+
+
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -114,9 +116,13 @@ public class SysUserController extends AbstractController {
 	@SysLog("保存 Users")
 	@RequestMapping("/save")
 	@RequiresPermissions("sys:user:save")
-	public R save(@RequestBody SysUserEntity user){
+	public R save(@RequestBody SysUserEntity user,HttpServletRequest request){
+		System.out.println(user.getDeptName()+"password "+user.getPassword()+user.toString());
+		user.setPassword("123456");
+		System.out.println("request"+request.getParameter("password"));
+		System.out.println("request"+request.getParameter("deptName"));
 		ValidatorUtils.validateEntity(user, AddGroup.class);
-		
+	
 		sysUserService.save(user);
 		
 		return R.ok();
