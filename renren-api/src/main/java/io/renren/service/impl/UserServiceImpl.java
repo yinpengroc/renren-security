@@ -88,7 +88,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 
 		// 获取 Logintoken
 		TokenEntity tokenEntity = tokenService.createToken(userEntity.getUserId());
-		redisUtils.set(tokenEntity.getToken(), userEntity);
+		redisUtils.set(tokenEntity.getToken(), userEntity,3600);
 		Map<String, Object> map = new HashMap<>(2);
 		map.put("token", tokenEntity.getToken());
 		map.put("expire",  System.currentTimeMillis()+3600000);
