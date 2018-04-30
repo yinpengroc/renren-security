@@ -91,7 +91,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 		redisUtils.set(tokenEntity.getToken(), userEntity);
 		Map<String, Object> map = new HashMap<>(2);
 		map.put("token", tokenEntity.getToken());
-		map.put("expire", tokenEntity.getExpireTime().getTime() - System.currentTimeMillis());
+		map.put("expire",  System.currentTimeMillis()+3600000);
 
 		return map;
 	}
