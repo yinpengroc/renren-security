@@ -69,7 +69,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 	}
 
-	@Scheduled(fixedDelay = 14000)
+	@Scheduled(fixedDelay = 14000*30)
 	private void getCurrentBkSave() {
 
 		String str = getResponseFromRemote(config.getEth_blockNumber());
@@ -77,7 +77,7 @@ public class TransactionsServiceImpl implements TransactionsService {
 
 	}
 
-	@Scheduled(fixedDelay = 14000)
+	@Scheduled(fixedDelay = 14000*30)
 	private void gasPriceSave() {
 
 		String str = getResponseFromRemote(config.getEth_gasPrice());

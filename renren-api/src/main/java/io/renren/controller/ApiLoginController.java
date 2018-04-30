@@ -1,6 +1,5 @@
 package io.renren.controller;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +20,7 @@ import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
 
 /**
- *  Logininterface
+ * Logininterface
  *
  * @author peng
  * @email yinpenghawk@gmail.com
@@ -29,45 +28,48 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @RestController
 @RequestMapping("/api")
-@Api(tags=" Logininterface")
+@Api(tags = " Logininterface")
 public class ApiLoginController implements BaseController {
-//    @Autowired
-//    private UserService userService;
-    @Autowired
-    private TokenService tokenService;
-    @Autowired
-   	private RedisUtils redisUtils;
- 
+	// @Autowired
+	// private UserService userService;
+	@Autowired
+	private TokenService tokenService;
+	@Autowired
+	private RedisUtils redisUtils;
 
+	@PostMapping("login")
+	@ApiOperation("login")
+	public R login(@RequestBody LoginForm form) {
+		// Formvalidate
+		// ValidatorUtils.validateEntity(form);
+		// Users Login
+		System.out.println("this is login"+form.toString());
+		UserEntity userEntity = new UserEntity();
+		userEntity.setUsername("test1234");
+		redisUtils.set("12345", userEntity);
 
-    @PostMapping("login")
-    @ApiOperation(" Login")
-    public R login(@RequestBody LoginForm form){
-        // Formvalidate
-       // ValidatorUtils.validateEntity(form);
-        // Users Login
-        UserEntity userEntity= new UserEntity();
-        userEntity.setUsername("test1234");
-        redisUtils.set("12345", userEntity);
-        
-        
-       // Map<String, Object> map = userService.login(form);
-        Map<String, Object> map =new HashMap();
-        map.put("key", "12345");
-        
-        
+		// Map<String, Object> map = userService.login(form);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("key", "12345");
 
-        return R.ok(map);
-    }
+		return R.ok(map);
+	}
 
-  
-   
-    @PostMapping("logout")
-    @ApiOperation("退出")
-    public R logout(@ApiIgnore @RequestAttribute("userId") long userId){
-        tokenService.expireToken(userId);
-        return R.ok();
-    }
+	@PostMapping("logout")
+	@ApiOperation("退出")
+	public R logout(@ApiIgnore @RequestAttribute("userId") long userId) {
+		tokenService.expireToken(userId);
+		return R.ok();
+	}
 
+//	@PostMapping("google")
+//    @ApiOperation("google login callback")
+//    public void googleApi() {
+//		
+//		System.out.println("this is callback");
+//		
+//		
+//		
+//	}
 
 }
