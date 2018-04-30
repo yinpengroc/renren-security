@@ -3,6 +3,8 @@ package io.renren.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.toolkit.StringUtils;
 
+import io.renren.common.utils.IpAdrressUtil;
 import io.renren.common.utils.R;
 import io.renren.common.utils.RedisUtils;
 import io.renren.entity.UserEntity;
@@ -42,9 +45,9 @@ public class ApiLoginController implements BaseController {
 
 	@PostMapping("login")
 	@ApiOperation("login")
-	public R login(@RequestBody LoginForm form) {
+	public R login(@RequestBody LoginForm form,HttpServletRequest request) {
 
-		Map<String, Object> map = userService.login(form);
+		Map<String, Object> map = userService.login(form,IpAdrressUtil.getIpAdrress(request));
 
 		return R.ok(map);
 	}

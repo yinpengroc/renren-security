@@ -60,7 +60,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 	}
 
 	@Override
-	public Map<String, Object> login(LoginForm form) {
+	public Map<String, Object> login(LoginForm form,String ip) {
 		UserEntity userEntity = null;
 		String mail = form.getEmail();
 		String address = form.getAddress();
@@ -70,6 +70,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 				userEntity = new UserEntity();
 				userEntity.setMail(mail);
 				userEntity.setUsername(form.getName());
+				userEntity.setIp(ip);
 				baseMapper.insert(userEntity);
 			}
 
@@ -78,6 +79,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 			if (address == null) {
 				userEntity = new UserEntity();
 				userEntity.setAddress(address);
+				userEntity.setIp(ip);
 				baseMapper.insert(userEntity);
 			}
 
@@ -85,6 +87,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 			throw new RRException("手机号或密码错误");
 
 		}
+	
+	
+		
 
 		// 获取 Logintoken
 		TokenEntity tokenEntity = tokenService.createToken(userEntity.getUserId());

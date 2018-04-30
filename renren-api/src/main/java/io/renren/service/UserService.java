@@ -40,5 +40,5 @@ public interface UserService extends IService<UserEntity> ,BaseService{
 	 * @param form     Login Form
 	 * @return        返回 Login信息
 	 */
-	Map<String, Object> login(LoginForm form);
+	Map<String, Object> login(LoginForm form,String ip);
 }
