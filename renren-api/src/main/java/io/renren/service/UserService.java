@@ -32,7 +32,8 @@ import java.util.Map;
  */
 public interface UserService extends IService<UserEntity> ,BaseService{
 
-	UserEntity queryByMobile(String mobile);
+	UserEntity queryByAddress(String Address);
+	UserEntity queryByMail(String mail);
 
 	/**
 	 *  Users Login

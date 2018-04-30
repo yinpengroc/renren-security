@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.baomidou.mybatisplus.toolkit.StringUtils;
+
 import io.renren.common.utils.R;
 import io.renren.common.utils.RedisUtils;
 import io.renren.entity.UserEntity;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
+import io.renren.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import springfox.documentation.annotations.ApiIgnore;
@@ -30,27 +33,18 @@ import springfox.documentation.annotations.ApiIgnore;
 @RequestMapping("/api")
 @Api(tags = " Logininterface")
 public class ApiLoginController implements BaseController {
-	// @Autowired
-	// private UserService userService;
+	@Autowired
+	private UserService userService;
 	@Autowired
 	private TokenService tokenService;
-	@Autowired
-	private RedisUtils redisUtils;
+	// @Autowired
+	// private RedisUtils redisUtils;
 
 	@PostMapping("login")
 	@ApiOperation("login")
 	public R login(@RequestBody LoginForm form) {
-		// Formvalidate
-		// ValidatorUtils.validateEntity(form);
-		// Users Login
-		System.out.println("this is login"+form.toString());
-		UserEntity userEntity = new UserEntity();
-		userEntity.setUsername("test1234");
-		redisUtils.set("12345", userEntity);
 
-		// Map<String, Object> map = userService.login(form);
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("key", "12345");
+		Map<String, Object> map = userService.login(form);
 
 		return R.ok(map);
 	}
@@ -62,14 +56,14 @@ public class ApiLoginController implements BaseController {
 		return R.ok();
 	}
 
-//	@PostMapping("google")
-//    @ApiOperation("google login callback")
-//    public void googleApi() {
-//		
-//		System.out.println("this is callback");
-//		
-//		
-//		
-//	}
+	// @PostMapping("google")
+	// @ApiOperation("google login callback")
+	// public void googleApi() {
+	//
+	// System.out.println("this is callback");
+	//
+	//
+	//
+	// }
 
 }

@@ -85,6 +85,13 @@ public class UserEntity implements Serializable {
 	private String address;
 	private int device;
 	private String ip;
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+	private String 	mail;
 	/**
 	 *  UsersID
 	 */
