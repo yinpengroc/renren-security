@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 
 	<name>renren-security</name>
-	<url>blockeeper.org</url>
+	<url>blockeeper.ai</url>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
