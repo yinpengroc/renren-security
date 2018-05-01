@@ -49,51 +49,54 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     @Autowired
 	private RedisUtils redisUtils;
 	private static final Logger log = LoggerFactory.getLogger(AuthorizationInterceptor.class);
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
 
-      String ip = request.getRemoteAddr();
-        long startTime = System.currentTimeMillis();
-        request.setAttribute("requestStartTime", startTime);
-        HandlerMethod handlerMethod = (HandlerMethod) handler;
-//        // 获取用户token
-        Method method = handlerMethod.getMethod();
-       // System.out.println();   
-        log.info("用户:"+ip+",访问目标:"+method.getName());
-       
-        //从header中获取token
-        String token = request.getHeader("Authorization");
-        //如果header中不存在token，则从参数中获取token
-        if(StringUtils.isBlank(token)){
-            token = request.getParameter("Authorization");
-        }
+		String ip = request.getRemoteAddr();
+		long startTime = System.currentTimeMillis();
+		request.setAttribute("requestStartTime", startTime);
+		HandlerMethod handlerMethod = (HandlerMethod) handler;
+		// // 获取用户token
+		Method method = handlerMethod.getMethod();
+		// System.out.println();
+		log.info("用户:" + ip + ",访问目标:" + method.getName());
 
-        //token为空
-        if(StringUtils.isBlank(token)){
-            throw new RRException("token can not empty",400);
-        }
+		// 从header中获取token
+		String token = request.getHeader("Authorization");
+		// 如果header中不存在token，则从参数中获取token
+		if (StringUtils.isBlank(token)) {
+			token = request.getParameter("Authorization");
+		}
 
-//        //查询token信息
-//        TokenEntity tokenEntity = tokenService.queryByToken(token);
-//        if(tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()){
-//            throw new RRException("token Unauthorized，please reLogin",401);
-//        }
-//
-//        // we can put userid into rquest or user entity
-//        request.setAttribute(USER_KEY, tokenEntity.getUserId());
-  
-        UserEntity user =(UserEntity)redisUtils.get(token,UserEntity.class);
-       // String user =redisUtils.get(token);
-        if(user==null) {
-  
-        	 throw new RRException("without autority",401);
-        }
-        
-        request.setAttribute(USER_KEY, user);
+		// token为空
+		if (StringUtils.isBlank(token)) {
+			throw new RRException("token can not empty", 400);
+		}
 
-        return true;
-    }
+		// //查询token信息
+		// TokenEntity tokenEntity = tokenService.queryByToken(token);
+		// if(tokenEntity == null || tokenEntity.getExpireTime().getTime() <
+		// System.currentTimeMillis()){
+		// throw new RRException("token Unauthorized，please reLogin",401);
+		// }
+		//
+		// // we can put userid into rquest or user entity
+		// request.setAttribute(USER_KEY, tokenEntity.getUserId());
+
+		UserEntity user = (UserEntity) redisUtils.get(token, UserEntity.class);
+		// String user =redisUtils.get(token);
+		if (user == null) {
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+
+			throw new RRException("without autority", 401);
+		}
+
+		request.setAttribute(USER_KEY, user);
+
+		return true;
+	}
     
     
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

@@ -1,9 +1,9 @@
 package io.renren.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,12 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baomidou.mybatisplus.toolkit.StringUtils;
-
 import io.renren.common.utils.IpAdrressUtil;
 import io.renren.common.utils.R;
-import io.renren.common.utils.RedisUtils;
-import io.renren.entity.UserEntity;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
 import io.renren.service.UserService;
@@ -45,10 +41,17 @@ public class ApiLoginController implements BaseController {
 
 	@PostMapping("login")
 	@ApiOperation("login")
-	public R login(@RequestBody LoginForm form,HttpServletRequest request) {
-
-		Map<String, Object> map = userService.login(form,IpAdrressUtil.getIpAdrress(request));
-
+	public R login(@RequestBody LoginForm form,HttpServletRequest request,HttpServletResponse response) {
+		 Map<String, Object> map=null;
+     try {
+    	  map = userService.login(form,IpAdrressUtil.getIpAdrress(request));
+	} catch (Exception e) {
+		// TODO: handle exception
+		  response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		return R.error(4, "the input is error");
+	}
+		
+        
 		return R.ok(map);
 	}
 

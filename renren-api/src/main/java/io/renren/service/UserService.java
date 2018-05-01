@@ -17,11 +17,12 @@
 package io.renren.service;
 
 
+import java.util.Map;
+
 import com.baomidou.mybatisplus.service.IService;
+
 import io.renren.entity.UserEntity;
 import io.renren.form.LoginForm;
-
-import java.util.Map;
 
 /**
  *  Users
@@ -40,5 +41,5 @@ public interface UserService extends IService<UserEntity> ,BaseService{
 	 * @param form     Login Form
 	 * @return        返回 Login信息
 	 */
-	Map<String, Object> login(LoginForm form,String ip);
+	Map<String, Object> login(LoginForm form,String ip) throws Exception;
 }

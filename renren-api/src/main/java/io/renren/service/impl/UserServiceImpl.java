@@ -60,7 +60,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 	}
 
 	@Override
-	public Map<String, Object> login(LoginForm form,String ip) {
+	public Map<String, Object> login(LoginForm form,String ip) throws Exception {
 		UserEntity userEntity = null;
 		String mail = form.getEmail();
 		String address = form.getAddress();
@@ -84,7 +84,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 			}
 
 		} else {
-			throw new RRException("手机号或密码错误");
+			throw new RRException("there are no address or mail");
 
 		}
 	
