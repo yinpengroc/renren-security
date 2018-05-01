@@ -1,5 +1,5 @@
 rm -rf out.file
-ps -ef | grep java 
+kill -9 $(ps -ef | grep java)
 pkill java
 pkill tomcat
 pkill renren-api
