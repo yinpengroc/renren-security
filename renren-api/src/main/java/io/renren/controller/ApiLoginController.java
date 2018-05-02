@@ -1,13 +1,17 @@
 package io.renren.controller;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import io.renren.common.utils.R;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
@@ -36,9 +40,10 @@ public class ApiLoginController extends BaseController {
 
 	@PostMapping("login")
 	@ApiOperation("login")
+	@CrossOrigin
 	public R login(@RequestBody LoginForm form,HttpServletRequest request,HttpServletResponse response) {
 		 Map<String, Object> map=null;
-//		 System.out.println(getIp(request)+"mail:"+form.getAddress()+"address:"+form.getEmail());
+
      try {
     	  map = userService.login(form,getIp(request),getDevice(request));
 	} catch (Exception e) {
