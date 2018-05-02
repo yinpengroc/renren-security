@@ -26,7 +26,7 @@ import java.util.Date;
 @RestController
 @RequestMapping("/api")
 @Api(tags=" Registerinterface")
-public class ApiRegisterController implements BaseController {
+public class ApiRegisterController extends BaseController {
     @Autowired
     private UserService userService;
 

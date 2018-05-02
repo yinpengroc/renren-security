@@ -58,29 +58,36 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 		;
 		return baseMapper.selectOne(userEntity);
 	}
+	
+	private UserEntity insertUser(LoginForm form,String ip,int device) {
+		String mail = form.getEmail();
+		String address = form.getAddress();
+		String  name= form.getName();
+		UserEntity	userEntity = new UserEntity();
+		userEntity.setAddress(address);
+		userEntity.setMail(mail);
+		userEntity.setUsername(name);
+		userEntity.setIp(ip);
+		userEntity.setDevice(device);
+		baseMapper.insert(userEntity);
+		return userEntity;
+	}
 
 	@Override
-	public Map<String, Object> login(LoginForm form,String ip) throws Exception {
+	public Map<String, Object> login(LoginForm form,String ip,int device) throws Exception {
 		UserEntity userEntity = null;
 		String mail = form.getEmail();
 		String address = form.getAddress();
 		if (StringUtils.isNotEmpty(mail)) {
 			userEntity = queryByMail(mail);
 			if (userEntity == null) {
-				userEntity = new UserEntity();
-				userEntity.setMail(mail);
-				userEntity.setUsername(form.getName());
-				userEntity.setIp(ip);
-				baseMapper.insert(userEntity);
+				userEntity=insertUser( form, ip, device);
 			}
 
 		} else if (StringUtils.isNotEmpty(address)) {
 			userEntity = queryByAddress(address);
-			if (address == null) {
-				userEntity = new UserEntity();
-				userEntity.setAddress(address);
-				userEntity.setIp(ip);
-				baseMapper.insert(userEntity);
+			if (userEntity == null) {
+				userEntity=insertUser( form, ip, device);
 			}
 
 		} else {

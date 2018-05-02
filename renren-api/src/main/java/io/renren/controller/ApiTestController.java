@@ -39,7 +39,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @RequestMapping("/api")
 @Api(tags = "blockeeper test")
 
-public class ApiTestController implements BaseController  {
+public class ApiTestController extends BaseController  {
 
 	@Autowired
 	private TransactionsService transactionsService;
@@ -65,7 +65,7 @@ public class ApiTestController implements BaseController  {
 	public R getVersion(HttpServletResponse rs,HttpServletRequest request) {
 		UserEntity user=	(UserEntity)request.getAttribute("userInfo");
 		
-		log.info(user.getUsername());
+		logger.info(user.getUsername());
 		rs.setStatus(HttpServletResponse.SC_OK);
 		return R.ok().put("msg", "version:1.1");
 	}
