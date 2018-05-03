@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.renren.common.utils.R;
+import io.renren.entity.UserEntity;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
 import io.renren.service.UserService;
@@ -73,5 +74,29 @@ public class ApiLoginController extends BaseController {
 	//
 	//
 	// }
+	
+	
+	@PostMapping("update")
+	@ApiOperation("update")
+	@CrossOrigin
+	public R update(@RequestBody UserEntity user,HttpServletRequest request,HttpServletResponse response) {
+		 Map<String, Object> map=null;
+		 System.out.println("this is token :"+getToken(request));
+
+     try {
+    	  map = userService.update(user,getIp(request),getDevice(request),getToken(request));
+	} catch (Exception e) {
+		// TODO: handle exception
+		  response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		  logger.warn(getIp(request)+e.getMessage());
+		return R.error(4, "the input is error");
+	}
+		
+        
+		return R.ok(map);
+	}
+	
+	
+	
 
 }

@@ -94,6 +94,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 		}
 
 		request.setAttribute(USER_KEY, user);
+		request.setAttribute("token", token);
 
 		return true;
 	}

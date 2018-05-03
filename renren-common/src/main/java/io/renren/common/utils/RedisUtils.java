@@ -104,6 +104,12 @@ public class RedisUtils {
 	public void delete(String key) {
 		redisTemplate.delete(key);
 	}
+	
+	public void update(String key,Object value) {
+		this.delete(key);
+		this.set(key, value);
+		
+	}
 
 	/**
 	 * Object转成JSON数据

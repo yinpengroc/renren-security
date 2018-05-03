@@ -42,4 +42,6 @@ public interface UserService extends IService<UserEntity> ,BaseService{
 	 * @return        返回 Login信息
 	 */
 	Map<String, Object> login(LoginForm form,String ip,int device) throws Exception;
+	
+	Map<String, Object> update(UserEntity User,String ip,int device,String key) throws Exception;
 }

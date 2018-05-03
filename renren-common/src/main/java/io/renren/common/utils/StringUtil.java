@@ -1,4 +1,7 @@
 package io.renren.common.utils;
+
+import com.baomidou.mybatisplus.toolkit.StringUtils;
+
 /**
  * 字符串相关方法
  *
@@ -31,8 +34,8 @@ public class StringUtil {
 	 * @return
 	 */
 	public static String  getRidOfPro(String str,String pro) {
-
-		if(str.indexOf(pro)>-1){
+ 
+		if(StringUtils.isNotEmpty(str)&&str.indexOf(pro)>-1){
 		String reString=str.replace( pro,"").trim();
 		return	reString;
 		}

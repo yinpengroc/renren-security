@@ -5,11 +5,21 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ch.qos.logback.core.subst.Token;
 import io.renren.common.utils.IpAdrressUtil;
 
 public class BaseController {
 	public final Logger logger = LoggerFactory.getLogger(BaseController.class);
 	private String ip = null;
+	private String token=null;
+	
+	String getToken(HttpServletRequest request) {
+		if(this.token==null) {
+			this.token=(String) request.getAttribute("token");
+		}
+		return this.token;
+	}
+	
 
 	String getIp(HttpServletRequest request) {
 		if (this.ip == null) {

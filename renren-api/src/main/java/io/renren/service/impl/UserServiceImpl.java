@@ -58,7 +58,13 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 		;
 		return baseMapper.selectOne(userEntity);
 	}
-	
+	/**
+	 * 
+	 * @param form
+	 * @param ip
+	 * @param device
+	 * @return
+	 */
 	private UserEntity insertUser(LoginForm form,String ip,int device) {
 		String mail = form.getEmail();
 		String address = form.getAddress();
@@ -71,6 +77,13 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 		userEntity.setDevice(device);
 		baseMapper.insert(userEntity);
 		return userEntity;
+	}
+	
+	private UserEntity updateUser (UserEntity user,String ip,int device) {
+		user.setIp(ip);
+		user.setDevice(device);
+		baseMapper.updateById(user);
+		return user;
 	}
 
 	@Override
@@ -94,9 +107,6 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 			throw new RRException("there are no address or mail");
 
 		}
-	
-	
-		
 
 		// 获取 Logintoken
 		TokenEntity tokenEntity = tokenService.createToken(userEntity.getUserId());
@@ -106,6 +116,17 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 		map.put("token", tokenEntity.getToken());
 		map.put("expire",  System.currentTimeMillis()+3600000);
 
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> update(UserEntity user, String ip,int device,String key) throws Exception {
+		// TODO Auto-generated method stub
+		
+		user=updateUser( user,  ip, device);
+		redisUtils.update(key, user);
+		Map<String, Object> map = new HashMap<>(2);
+		map.put("user", user);
 		return map;
 	}
 
