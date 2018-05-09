@@ -1,4 +1,4 @@
-本地部署
+local
 
 mvn clean install
 http://localhost:8080/renren-admin
